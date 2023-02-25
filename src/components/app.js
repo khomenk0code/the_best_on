@@ -3,6 +3,7 @@ import {Routes, Route} from "react-router";
 import {MainPage} from "../pages/main-page";
 import {GlobalStyle} from "../global-style";
 
+
 const App = () => {
     return (
         <div>

@@ -2,37 +2,41 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import slide1 from "../../assets/images/slide1.jpg"
-import slide2 from "../../assets/images/slide2.jpg"
-import slide3 from "../../assets/images/slide3.jpg"
+import LeftArrow from "../../assets/images/arrow-l.svg"
+import RightArrow from "../../assets/images/arrow-r.svg"
 
-export const SliderBar = () => {
+
+export default function MainSlider({slides}) {
+
+    const SlickArrowLeft = ({currentSlide, slideCount, ...props}) => (
+        <img src={LeftArrow} alt="prevArrow" {...props} />
+    );
+
+    const SlickArrowRight = ({currentSlide, slideCount, ...props}) => (
+        <img src={RightArrow} alt="nextArrow" {...props} />
+    );
     const settings = {
-        dots: true,
-        infinite: true,
+        dots: false,
+        infinite: false,
         speed: 500,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        initialSlide: 1,
+        prevArrow: <SlickArrowLeft/>,
+        nextArrow: <SlickArrowRight/>,
     };
-
     return (
-        <>
-            <Slider {...settings}>
-                <div>
-                    <img src={slide1} alt=""/>
-                </div>
-                <div>
-                    <img src={slide2} alt=""/>
-                </div>
-                <div>
-                    <img src={slide3} alt=""/>
-                </div>
+        <div>
+            <Slider {...settings} >
+                {slides.map((slide, id) => {
+                    return (
+                        <div key={id}>
+                            <img src={slide.src} alt={`Slide ${id}`}/>
+                        </div>
+                    );
+                })}
             </Slider>
-        </>
-    )
+        </div>
 
+    );
 }
-
-
-
-export default SliderBar;
