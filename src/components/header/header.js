@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import logo from "../../assets/images/Logo.svg";
+import logo from "../../assets/images/logo.svg";
+import {ConnectButton} from "../buttons/connect-button"
 
 
-
-const  Header = () => {
+const Header = () => {
 
     const handleButtonClick = () => {
         console.log('Button clicked');
@@ -18,11 +18,11 @@ const  Header = () => {
                     <Link>Оплата</Link>
                     <Link>Контакти</Link>
                 </LinksWrapper>
-                <ButtonSecondary  onClick={handleButtonClick}>
-                    <ConnectButton>Підключитися</ConnectButton>
-                </ButtonSecondary>
+                <ConnectButton onClick={handleButtonClick}>
+                    <HeaderButton>Підключитися</HeaderButton>
+                </ConnectButton>
                 <LogoWrapper>
-                    <Logo src={logo} alt="The Best-On" />
+                    <Logo src={logo} alt="The Best-On"/>
                 </LogoWrapper>
             </HeaderContainer>
         </Wrapper>
@@ -75,24 +75,8 @@ const  Link = styled.a`
   flex-grow: 0;
 `
 
-const  ButtonSecondary = styled.button`
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 40px;
-  gap: 10px;
-  position: absolute;
-  width: 239px;
-  height: 48px;
-  left: 1045px;
-  top: 15.5px;
-  background: #FFFFFF;
-  border: 1px solid #F1B634;
-  border-radius: 15px;
-`
-const  ConnectButton = styled.div`
+
+const HeaderButton = styled.a`
   width: 159px;
   height: 28px;
   // noinspection CssNoGenericFontName

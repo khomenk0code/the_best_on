@@ -1,7 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
-import RalewayRegular from '../assets/fonts/Inter-Regular.ttf';
-import InterRegular from '../assets/fonts/Inter-Regular.ttf';
-import NunitoSans from '../assets/fonts/NunitoSans-Regular.ttf';
+import {createGlobalStyle} from 'styled-components';
+import RalewayRegular from './assets/fonts/Inter-Regular.ttf';
+import InterRegular from './assets/fonts/Inter-Regular.ttf';
+import NunitoSans from './assets/fonts/NunitoSans-Regular.ttf';
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -23,7 +23,7 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: normal;
     font-style: normal;
   }
-  
+
   body {
     font-family: 'Raleway', sans-serif;
   }

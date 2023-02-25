@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../Header/Header"
-import {SliderBar} from "../Slider/Slider";
+import Header from "../components/header/header"
+import {SliderBar} from "../components/slider/slider";
 
 
 export const MainPage = () => {
