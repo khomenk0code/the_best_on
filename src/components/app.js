@@ -1,6 +1,6 @@
 import React from "react";
 import {Routes, Route} from "react-router";
-import {MainPage} from "../pages/main-page";
+import {MainPage} from "../pages/main/main.page";
 import {GlobalStyle} from "../global-style";
 
 

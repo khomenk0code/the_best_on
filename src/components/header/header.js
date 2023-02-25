@@ -12,6 +12,7 @@ const Header = () => {
     return (
         <Wrapper>
             <HeaderContainer>
+                    <Logo src={logo} alt="The Best-On"/>
                 <LinksWrapper>
                     <Link>Тарифи</Link>
                     <Link>Послуги</Link>
@@ -21,9 +22,7 @@ const Header = () => {
                 <ConnectButton onClick={handleButtonClick}>
                     <HeaderButton>Підключитися</HeaderButton>
                 </ConnectButton>
-                <LogoWrapper>
-                    <Logo src={logo} alt="The Best-On"/>
-                </LogoWrapper>
+
             </HeaderContainer>
         </Wrapper>
     )
@@ -33,20 +32,14 @@ const  Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
-  gap: 10px;
-  width: 1304px;
-  height: 84.5px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+  width: 100%;
 `
 const  HeaderContainer = styled.div`
-  width: 1284px;
-  height: 64.5px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 1300px;
 `
 
 const  LinksWrapper = styled.div`
@@ -54,11 +47,9 @@ const  LinksWrapper = styled.div`
   flex-direction: row;
   align-items: flex-start;
   gap: 28px;
-  position: absolute;
   width: 393px;
   height: 23px;
-  left: 327px;
-  top: 25.5px;
+
 `
 const  Link = styled.a`
   width: 72px;
@@ -79,19 +70,8 @@ const  Link = styled.a`
 const HeaderButton = styled.a`
   width: 159px;
   height: 28px;
-  // noinspection CssNoGenericFontName
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
   font-size: 24px;
   line-height: 28px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-`
-const  LogoWrapper = styled.div`
-  height: 59px;
-  width: 276px;
 `
 const Logo = styled.img`
   height: 42px;

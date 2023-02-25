@@ -8,11 +8,8 @@ export const ConnectButton = styled.button`
   align-items: center;
   padding: 10px 40px;
   gap: 10px;
-  position: absolute;
   width: 239px;
   height: 48px;
-  left: 1045px;
-  top: 15.5px;
   background: #FFFFFF;
   border: 1px solid #F1B634;
   border-radius: 15px;
