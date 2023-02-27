@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const SliderFooter = () => {
+
     return (
         <SliderFooterWrapper>
             <TextContainer>

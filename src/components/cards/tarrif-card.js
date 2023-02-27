@@ -4,30 +4,34 @@ import {ConnectButton, HeaderButtonText} from "../buttons/connect-button";
 import {SliderTextPrefix} from "../../pages/main/slider.component"
 
 
-const TariffCard = () => {
+export default function TariffCard({cards}) {
     return (
-        <TariffCardWrapper>
-            <TariffName>Базовый</TariffName>
-            <TariffPriceValue>150</TariffPriceValue>
-            <TariffBottomText>грн/міс</TariffBottomText>
-            <TariffTextPrefix>до<TariffMaxPrice>100</TariffMaxPrice></TariffTextPrefix>
-            <TariffBottomText>мбіт/с</TariffBottomText>
-            <TariffButton>
-                <HeaderButtonText>Підключитися</HeaderButtonText>
-            </TariffButton>
-        </TariffCardWrapper>
+        <>
+            {cards.map((cards, id) => {
+                return (
+                    <TariffCardWrapper key={id}>
+                        <TariffName>{cards.name}</TariffName>
+                        <TariffPriceValue>{cards.value}</TariffPriceValue>
+                        <TariffBottomText>грн/міс</TariffBottomText>
+                        <TariffTextPrefix>до<TariffMaxPrice>{cards.maxmb}</TariffMaxPrice></TariffTextPrefix>
+                        <TariffBottomText>мбіт/с</TariffBottomText>
+                        <TariffButton>
+                            <HeaderButtonText>Підключитися</HeaderButtonText>
+                        </TariffButton>
+                    </TariffCardWrapper>
+                );
+            })}
+        </>
     )
 }
 
 const TariffCardWrapper = styled.div`
   display: flex;
-  box-sizing: border-box;
   width: 305px;
   height: 445px;
   border: 1px solid #0D316D;
   border-radius: 15px;
   flex-direction: column;
-  margin-left: 50px;
   margin-bottom: 50px;
 `;
 
@@ -75,5 +79,4 @@ const TariffButton = styled(ConnectButton)`
 `;
 
 
-export default TariffCard
 
