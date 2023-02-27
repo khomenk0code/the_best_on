@@ -13,9 +13,9 @@ const cards = [
 const Tariffs = () => {
     return (
         <TariffsWrapper>
-            <TariffHeader>
+            <TariffsHeader>
                 Тарифи
-            </TariffHeader>
+            </TariffsHeader>
             <CardsWrapper>
                 <TariffCard title="Tariffs" cards={cards}/>
             </CardsWrapper>
@@ -35,7 +35,7 @@ const TariffsWrapper = styled.div`
   align-items: center;
 `;
 
-const TariffHeader = styled.h2`
+const TariffsHeader = styled.h2`
   font-family: 'Nunito Sans', sans-serif;
   margin: 0;
   font-style: normal;

@@ -6,6 +6,7 @@ import MainSlider from "../../components/slider/slider";
 import slide1 from "../../assets/images/slide1.png"
 import SliderFooter from "./slider.component"
 import Tariffs from "./tariff.component";
+import AdBlock from "./tgbot-ad.component"
 
 
 const slides = [
@@ -25,6 +26,7 @@ export const MainPage = () => {
             <MainSlider title="Slider" slides={slides}/>
             <SliderFooter/>
             <Tariffs/>
+            <AdBlock/>
         </div>
     )
 }
