@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import logo from "../../assets/images/logo.svg";
-import {ConnectButton} from "../buttons/connect-button"
+import {ConnectButton, HeaderButtonText} from "../buttons/connect-button"
 
 
 const Header = () => {
@@ -20,7 +20,7 @@ const Header = () => {
                     <Link>Контакти</Link>
                 </LinksWrapper>
                 <ConnectButton onClick={handleButtonClick}>
-                    <HeaderButton>Підключитися</HeaderButton>
+                    <HeaderButtonText>Підключитися</HeaderButtonText>
                 </ConnectButton>
 
             </HeaderContainer>
@@ -55,8 +55,6 @@ const  LinksWrapper = styled.div`
 const  Link = styled.a`
   width: 72px;
   height: 23px;
-  // noinspection CssNoGenericFontName
-  font-family: 'Raleway';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -67,12 +65,6 @@ const  Link = styled.a`
   flex-grow: 0;
 `
 
-
-const HeaderButton = styled.a`
-  width: 159px;
-  font-size: 24px;
-  color: #0D316D;
-`
 const Logo = styled.img`
   height: 42px;
 `;

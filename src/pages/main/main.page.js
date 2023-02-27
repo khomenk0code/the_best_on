@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import MainSlider from "../../components/slider/slider";
 import slide1 from "../../assets/images/slide1.png"
 import SliderFooter from "./slider.component"
+import TariffCard from "../../components/cards/tarrif-card"
 
 const slides = [
     {src: slide1, title: 'Оптичний інтернет', desc: 'Швидкий інтернет, який працює навіть без світла!'},
@@ -18,7 +19,9 @@ export const MainPage = () => {
         <div>
             <Header/>
             <MainSlider title="Slider" slides={slides}/>
-            <SliderFooter></SliderFooter>
+            <SliderFooter/>
+            <TariffCard/>
+
         </div>
     )
 }

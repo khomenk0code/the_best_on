@@ -30,6 +30,7 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 15px;
 `;
 
 const SliderTextItem = styled.div`
@@ -42,12 +43,12 @@ const SliderTextItem = styled.div`
   color: #f1b634;
 `;
 
-const SliderTextPrefix = styled.div`
+export const SliderTextPrefix = styled.div`
   font-size: 24px;
   line-height: 28px;
   color: #0d316d;
   white-space: nowrap;
-  margin-right: 10px; /* добавленный отступ справа от компонента */
+  margin-right: 10px;
 `;
 
 const SliderTextMb = styled.div`

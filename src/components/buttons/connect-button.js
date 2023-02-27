@@ -14,3 +14,9 @@ export const ConnectButton = styled.button`
   border: 1px solid #F1B634;
   border-radius: 15px;
 `
+
+export const HeaderButtonText = styled.a`
+  width: 159px;
+  font-size: 24px;
+  color: #0D316D;
+`
