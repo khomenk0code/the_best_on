@@ -6,30 +6,30 @@ import LeftArrow from "../../assets/images/arrow-l.svg"
 import RightArrow from "../../assets/images/arrow-r.svg"
 import "./arrows.css"
 import styled from "styled-components";
-
+import {ConnectButton} from "../buttons/connect-button";
 
 export default function MainSlider({slides}) {
 
 
-    const SlickArrowLeft = ({currentSlide, slideCount, ...props}) => (
+    const PrevArrow = ({currentSlide, slideCount, ...props}) => (
         <img src={LeftArrow} alt="prevArrow" {...props} />
     );
 
 
-    const SlickArrowRight = ({currentSlide, slideCount, ...props}) => (
+    const NextArrow = ({currentSlide, slideCount, ...props}) => (
         <img src={RightArrow} alt="nextArrow" {...props} />
     );
 
     const settings = {
         dots: false,
-        infinite: false,
-        speed: 500,
+        speed: 600,
         slidesToShow: 1,
         slidesToScroll: 1,
         initialSlide: 1,
-        prevArrow: <SlickArrowLeft/>,
-        nextArrow: <SlickArrowRight/>,
-        adaptiveHeight: true
+        prevArrow: <PrevArrow/>,
+        nextArrow: <NextArrow/>,
+        adaptiveHeight: true,
+        draggable: false,
     };
 
     return (
@@ -37,10 +37,14 @@ export default function MainSlider({slides}) {
             <Slider {...settings} >
                 {slides.map((slide, id) => {
                     return (
-                        <StyledWrapper key={id}>
-                            <StyledImage src={slide.src} alt={`Slide ${id}`}/>
-                            <div>asdasdasd</div>
-                        </StyledWrapper>
+                        <SlideWrapper key={id}>
+                            <SlideImage src={slide.src} alt={`Slide ${id}`}/>
+                            <SlideTitle>{slide.title}</SlideTitle>
+                            <SlideDescription>{slide.desc}</SlideDescription>
+                            <SliderConnectButton>
+                                <ConnectButtonText>Підключитися</ConnectButtonText>
+                            </SliderConnectButton>
+                        </SlideWrapper>
                     );
                 })}
             </Slider>
@@ -49,7 +53,42 @@ export default function MainSlider({slides}) {
     );
 }
 
-const StyledImage = styled.img`
+const SliderConnectButton = styled(ConnectButton)`
+  background: #F1B634;
+  border-radius: 15px;
+  position: absolute;
+  width: 239px;
+  height: 48px;
+  left: 186px;
+  top: 317px;
+`;
+
+const ConnectButtonText = styled.div`
+  width: 159px;
+  height: 28px;
+  font-size: 24px;
+  line-height: 28px;
+  color: #FFFFFF;
+`
+
+const SlideTitle = styled.h2`
+  position: absolute;
+  left: 183px;
+  font-weight: 400;
+  font-size: 65px;
+  color: #FFFFFF;
+`
+const SlideDescription = styled.div`
+  position: absolute;
+  width: 521px;
+  height: 70px;
+  left: 186px;
+  top: 207px;
+  font-size: 30px;
+  line-height: 35px;
+  color: #FFFFFF;
+`;
+const SlideImage = styled.img`
   height: 440px;
   width: 100%;
   object-fit: cover;
@@ -59,7 +98,7 @@ const StyledImage = styled.img`
   z-index: -1;
 `;
 
-const StyledWrapper = styled.div`
+const SlideWrapper = styled.div`
   height: 440px;
   width: 100%;
   position: relative;

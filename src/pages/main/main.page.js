@@ -4,13 +4,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MainSlider from "../../components/slider/slider";
 import slide1 from "../../assets/images/slide1.png"
-import slide2 from "../../assets/images/slide2.jpg"
-import slide3 from "../../assets/images/slide3.jpg"
+import SliderFooter from "./slider.component"
 
 const slides = [
-    {src: slide1},
-    {src: slide2},
-    {src: slide3},
+    {src: slide1, title: 'Оптичний інтернет', desc: 'Швидкий інтернет, який працює навіть без світла!'},
+    {src: slide1, title: 'Приведи друга', desc: 'Рекомендуй наші послуги та отримай бонус!'},
+    {src: slide1, title: 'Безкоштовний мiсяць', desc: 'При першому пiдключеннi 1-ий мiсяць безкоштовно! '},
 ]
 
 export const MainPage = () => {
@@ -19,6 +18,7 @@ export const MainPage = () => {
         <div>
             <Header/>
             <MainSlider title="Slider" slides={slides}/>
+            <SliderFooter></SliderFooter>
         </div>
     )
 }

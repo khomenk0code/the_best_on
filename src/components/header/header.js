@@ -35,11 +35,12 @@ const  Wrapper = styled.div`
   width: 100%;
 `
 const  HeaderContainer = styled.div`
-  height: 65px;
+  height: 84px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-width: 1300px;
+  margin-bottom: 102px;
 `
 
 const  LinksWrapper = styled.div`
@@ -69,9 +70,8 @@ const  Link = styled.a`
 
 const HeaderButton = styled.a`
   width: 159px;
-  height: 28px;
   font-size: 24px;
-  line-height: 28px;
+  color: #0D316D;
 `
 const Logo = styled.img`
   height: 42px;

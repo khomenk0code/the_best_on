@@ -1,60 +1,71 @@
-// import styled from "styled-components";
-//
-// const SliderFooter = () => {
-//     return (
-//         <Benefits>
-//             <Group1>
-//                 <Text1>1000</Text1>
-//                 <Text2>мбіт/с</Text2>
-//                 <Text2>до</Text2>
-//             </Group1>
-//             <Group2>
-//                 <Text2>грн/міс</Text2>
-//                 <Text2>від</Text2>
-//                 <Text1>100</Text1>
-//             </Group2>
-//             <Group3>
-//                 <Text1>14</Text1>
-//                 <Text2>вже</Text2>
-//                 <Text2>років на ринку</text2>
-//             </Group3>
-//         </Benefits>
-//     )
-// }
-//
-// const Benefits = styled.div`
-//   height: 105px;
-//   width: 1035px;
-// `
-//
-// const Text1 = styled.div`
-//   text-align: left;
-//   vertical-align: top;
-//   font-size: 50px;
-//   font-family: Inter;
-//   line-height: auto;
-//   color: #f1b634;
-// `
-// const Text2 = styled.div`
-//   text-align: left;
-//   vertical-align: top;
-//   font-size: 24px;
-//   font-family: Raleway;
-//   line-height: auto;
-//   color: #0d316d;
-// `
-//
-// const Group1 = styled.div`
-//   height: 104px;
-//   width: 155px;
-// `
-//
-// const Group2 = styled.div`
-//   height: 104px;
-//   width: 128px;
-// `
-// const Group3 = styled.div`
-//   height: 105px;
-//   width: 171px;
-// `
-//
+import styled from "styled-components";
+
+const SliderFooter = () => {
+    return (
+        <SliderFooterWrapper>
+            <TextContainer>
+                <SliderTextItem><SliderTextPrefix>до</SliderTextPrefix>1000</SliderTextItem>
+                <SliderTextItem><SliderTextPrefix>від</SliderTextPrefix>100</SliderTextItem>
+                <SliderTextItem><SliderTextPrefix>вже</SliderTextPrefix>14</SliderTextItem>
+            </TextContainer>
+            <TextBottom>
+                <SliderTextMb> мбіт/с </SliderTextMb>
+                <SliderTextUah> грн/міс </SliderTextUah>
+                <div> років на ринку</div>
+            </TextBottom>
+        </SliderFooterWrapper>
+    );
+};
+
+const SliderFooterWrapper = styled.div`
+  margin: 66.5px 201px 102px 201px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+`;
+
+const TextContainer = styled.div`
+  width: 700px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const SliderTextItem = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  width: 160px;
+  height: 61px;
+  font-size: 50px;
+  color: #f1b634;
+`;
+
+const SliderTextPrefix = styled.div`
+  font-size: 24px;
+  line-height: 28px;
+  color: #0d316d;
+  white-space: nowrap;
+  margin-right: 10px; /* добавленный отступ справа от компонента */
+`;
+
+const SliderTextMb = styled.div`
+  margin-left: 75px;
+`;
+
+const SliderTextUah = styled.div`
+  margin-left: 10px;
+`;
+
+const TextBottom = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 763px;
+  font-size: 24px;
+  line-height: 28px;
+  color: #0D316D;
+`;
+
+
+export default SliderFooter;
