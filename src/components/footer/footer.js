@@ -6,6 +6,8 @@ import vodafone from "../../assets/images/vodafone.png"
 import kyivstar from "../../assets/images/kyivstar.png"
 
 const Footer = () => {
+
+
     return (
         <FooterWrapper>
             <LogoWrapper>
@@ -74,7 +76,6 @@ const LogoWrapper = styled.div`
 `;
 
 const LogoText = styled.div`
-  font-family: 'Raleway';
   margin-top: 50px;
   font-style: inherit;
   font-size: 14px;
@@ -92,7 +93,6 @@ const TariffsWrapper = styled.div`
 
 const Tariffs = styled.div`
   margin-top: 96px;
-  font-family: 'Raleway', "Roboto Thin";
   font-style: normal;
   font-size: 24px;
   line-height: 28px;
@@ -110,8 +110,6 @@ const TitlesLi = styled.li`
   width: 80px;
   list-style-type: none;
   height: 23px;
-  font-family: 'Raleway';
-  font-style: normal;
   font-weight: 100;
   font-size: 20px;
   line-height: 23px;
@@ -142,14 +140,16 @@ const FooterButton = styled(ConnectButton)`
   border: 1px solid #FFFFFF;
   background: #0D316D;
   margin-bottom: 14px;
+
+  &:hover {
+    cursor: pointer;
+    background: #F1B634;
+  }
 `
 
 const FooterButtonText = styled.a`
   width: 105px;
   height: 28px;
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
   font-size: 24px;
   line-height: 28px;
   color: #FFFFFF;

@@ -59,14 +59,19 @@ const SliderConnectButton = styled(ConnectButton)`
   height: 48px;
   left: 186px;
   top: 317px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-const ConnectButtonText = styled.div`
+const ConnectButtonText = styled.a`
   width: 159px;
   height: 28px;
   font-size: 24px;
   line-height: 28px;
   color: #FFFFFF;
+
 `
 
 const SlideTitle = styled.h2`

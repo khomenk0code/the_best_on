@@ -9,12 +9,13 @@ const Header = () => {
         console.log('Button clicked');
     }
 
+
     return (
         <Wrapper>
             <HeaderContainer>
-                    <Logo src={logo} alt="The Best-On"/>
+                <a href="/"><Logo src={logo} alt="The Best-On"/></a>
                 <LinksWrapper>
-                    <Link>Тарифи</Link>
+                    <Link href={"/tariffs"}>Тарифи</Link>
                     <Link>Послуги</Link>
                     <Link>Оплата</Link>
                     <Link>Контакти</Link>
@@ -53,10 +54,13 @@ const  LinksWrapper = styled.div`
 
 `
 const  Link = styled.a`
+  &:hover {
+    cursor: pointer;
+  }
+
   width: 72px;
   height: 23px;
   font-style: normal;
-  font-weight: 400;
   font-size: 20px;
   line-height: 23px;
   color: #0D316D;
@@ -67,6 +71,10 @@ const  Link = styled.a`
 
 const Logo = styled.img`
   height: 42px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 

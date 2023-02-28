@@ -54,6 +54,11 @@ const OfferImage = styled.img`
 `;
 
 const OfferButton = styled(ConnectButton)`
+  &:hover {
+    cursor: pointer;
+    background: #F1B634;
+  }
+
   margin: auto 33px 50px 33px;
 `;
 

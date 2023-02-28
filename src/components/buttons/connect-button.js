@@ -13,7 +13,12 @@ export const ConnectButton = styled.button`
   background: #FFFFFF;
   border: 1px solid #F1B634;
   border-radius: 15px;
-`
+
+  &:hover {
+    cursor: pointer;
+    background: #F1B634;
+  }
+`;
 
 export const HeaderButtonText = styled.a`
   width: 159px;

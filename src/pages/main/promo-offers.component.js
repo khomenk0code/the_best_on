@@ -64,6 +64,10 @@ const LoadAllOffersButton = styled(ConnectButton)`
   margin: 135px auto 0;
   display: block;
   background: #F1B634;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const LoadAllOffersText = styled(HeaderButtonText)`

@@ -76,6 +76,11 @@ const TariffMaxPrice = styled.div`
 
 const TariffButton = styled(ConnectButton)`
   margin: auto 33px 50px 33px;
+
+  &:hover {
+    cursor: pointer;
+    background: #F1B634;
+  }
 `;
 
 

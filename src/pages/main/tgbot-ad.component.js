@@ -96,9 +96,13 @@ const QrButton = styled(ConnectButton)`
   background-color: #F1B634;
   width: 206px;
   height: 48px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-const QrButtonText = styled.div`
+const QrButtonText = styled.a`
   width: 126px;
   height: 28px;
   font-size: 24px;
