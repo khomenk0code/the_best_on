@@ -7,17 +7,14 @@ import slide1 from "../../assets/images/slide1.png"
 import SliderFooter from "./slider.component"
 import Tariffs from "./tariff.component";
 import AdBlock from "./tgbot-ad.component"
-
+import Offers from "./promo-offers.component";
+import Footer from "../../components/footer/footer";
 
 const slides = [
     {src: slide1, title: 'Оптичний інтернет', desc: 'Швидкий інтернет, який працює навіть без світла!'},
     {src: slide1, title: 'Приведи друга', desc: 'Рекомендуй наші послуги та отримай бонус!'},
     {src: slide1, title: 'Безкоштовний мiсяць', desc: 'При першому пiдключеннi 1-ий мiсяць безкоштовно! '},
 ]
-
-
-
-
 
 export const MainPage = () => {
     return (
@@ -27,6 +24,8 @@ export const MainPage = () => {
             <SliderFooter/>
             <Tariffs/>
             <AdBlock/>
+            <Offers/>
+            <Footer/>
         </div>
     )
 }

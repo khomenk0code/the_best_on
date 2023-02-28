@@ -9,10 +9,10 @@ import {ConnectButton} from "../../components/buttons/connect-button";
 
 const AdBlock = () => {
     return (
-        <Wrapper>
-            <Header>
+        <AdWrapper>
+            <AdHeader>
                 Онлайн зручніше
-            </Header>
+            </AdHeader>
             <ContentWrapper>
                 <QrWrapper>
                     <QrHeader>Скануй цей QR код</QrHeader>
@@ -22,24 +22,18 @@ const AdBlock = () => {
                         <QrButtonText>Посилання </QrButtonText>
                     </QrButton>
                 </QrWrapper>
-
-
-                <Mid> та користуйся послугами зручно
+                <VectorWrapper> та користуйся послугами зручно
                     <Vector src={vector} alt="vector"/>
-
-                </Mid>
+                </VectorWrapper>
                 <Points src={points} alt="points"/>
                 <Services src={services} alt="services"/>
-
             </ContentWrapper>
-        </Wrapper>
-
-
+        </AdWrapper>
     )
 }
 
 
-const Wrapper = styled.div`
+const AdWrapper = styled.div`
   flex-direction: column;
   display: flex;
   margin-left: 80px;
@@ -48,7 +42,7 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Header = styled.h2`
+const AdHeader = styled.h2`
   font-family: 'Nunito Sans', sans-serif;
   margin-top: 74px;
   margin-bottom: 0;
@@ -73,7 +67,7 @@ const QrWrapper = styled.div`
 `;
 
 
-const QrHeader = styled.text`
+const QrHeader = styled.div`
   text-align: center;
   font-size: 24px;
   line-height: 28px;
@@ -88,7 +82,7 @@ const QrCode = styled.img`
   height: 238px;
 `;
 
-const QrText = styled.text`
+const QrText = styled.div`
   font-size: 20px;
   line-height: 23px;
   display: flex;
@@ -104,7 +98,7 @@ const QrButton = styled(ConnectButton)`
   height: 48px;
 `;
 
-const QrButtonText = styled.text`
+const QrButtonText = styled.div`
   width: 126px;
   height: 28px;
   font-size: 24px;
@@ -113,15 +107,13 @@ const QrButtonText = styled.text`
 `;
 
 
-const Mid = styled.div`
+const VectorWrapper = styled.div`
   margin-top: 160px;
   display: flex;
   flex-direction: column;
   font-size: 20px;
   line-height: 23px;
   color: #0D316D;
-
-
 `;
 
 const Services = styled.img`

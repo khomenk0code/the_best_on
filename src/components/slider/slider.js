@@ -9,8 +9,6 @@ import styled from "styled-components";
 import {ConnectButton} from "../buttons/connect-button";
 
 export default function MainSlider({slides}) {
-
-
     const PrevArrow = ({currentSlide, slideCount, ...props}) => (
         <img src={LeftArrow} alt="prevArrow" {...props} />
     );
@@ -103,3 +101,4 @@ const SlideWrapper = styled.div`
   width: 100%;
   position: relative;
 `;
+

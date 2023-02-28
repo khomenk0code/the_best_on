@@ -2,6 +2,7 @@ import React from "react";
 import TariffCard from "../../components/cards/tarrif-card";
 import styled from "styled-components";
 
+
 const cards = [
     {name: 'Базовий', value: 150, maxmb: 100},
     {name: 'Домашній', value: 170, maxmb: 300},
@@ -19,6 +20,7 @@ const Tariffs = () => {
             <CardsWrapper>
                 <TariffCard title="Tariffs" cards={cards}/>
             </CardsWrapper>
+
         </TariffsWrapper>
 
 
@@ -29,7 +31,6 @@ const TariffsWrapper = styled.div`
   flex-direction: column;
   display: flex;
   text-align: center;
-  margin-left: 80px;
   margin-bottom: 102px;
   height: 583px;
   align-items: center;
@@ -52,5 +53,6 @@ const CardsWrapper = styled.div`
   width: 1280px;
   justify-content: space-between;
 `;
+
 
 export default Tariffs;

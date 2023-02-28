@@ -5,9 +5,9 @@ const SliderFooter = () => {
     return (
         <SliderFooterWrapper>
             <TextContainer>
-                <SliderTextItem><SliderTextPrefix>до</SliderTextPrefix>1000</SliderTextItem>
-                <SliderTextItem><SliderTextPrefix>від</SliderTextPrefix>100</SliderTextItem>
-                <SliderTextItem><SliderTextPrefix>вже</SliderTextPrefix>14</SliderTextItem>
+                <SliderText><SliderTextPrefix>до</SliderTextPrefix>1000</SliderText>
+                <SliderText><SliderTextPrefix>від</SliderTextPrefix>100</SliderText>
+                <SliderText><SliderTextPrefix>вже</SliderTextPrefix>14</SliderText>
             </TextContainer>
             <TextBottom>
                 <SliderTextMb> мбіт/с </SliderTextMb>
@@ -34,7 +34,7 @@ const TextContainer = styled.div`
   margin-bottom: 15px;
 `;
 
-const SliderTextItem = styled.div`
+const SliderText = styled.div`
   display: flex;
   justify-content: center;
   align-items: baseline;
