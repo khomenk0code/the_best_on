@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ConnectButton = styled.button`
+export const Connect = styled.button`
   box-sizing: border-box;
   display: flex;
   flex-direction: row;

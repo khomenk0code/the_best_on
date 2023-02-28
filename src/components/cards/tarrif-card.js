@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {ConnectButton, HeaderButtonText} from "../buttons/connect-button";
+import {Connect, HeaderButtonText} from "../buttons/connect";
 import {SliderTextPrefix} from "../../pages/main/slider.component"
 
 
@@ -74,7 +74,7 @@ const TariffMaxPrice = styled.div`
   margin-bottom: 4px;
 `;
 
-const TariffButton = styled(ConnectButton)`
+const TariffButton = styled(Connect)`
   margin: auto 33px 50px 33px;
 
   &:hover {

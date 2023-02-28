@@ -6,17 +6,20 @@ import LeftArrow from "../../assets/images/arrow-l.svg"
 import RightArrow from "../../assets/images/arrow-r.svg"
 import "./arrows.css"
 import styled from "styled-components";
-import {ConnectButton} from "../buttons/connect-button";
+import {YellowConnect, YellowButtonText} from "../buttons/yellow-connect";
 
-export default function MainSlider({slides}) {
+export default function MainSlider({slides, setShowModal}) {
     const PrevArrow = ({currentSlide, slideCount, ...props}) => (
         <img src={LeftArrow} alt="prevArrow" {...props} />
     );
 
-
     const NextArrow = ({currentSlide, slideCount, ...props}) => (
         <img src={RightArrow} alt="nextArrow" {...props} />
     );
+
+    const modalOpen = () => {
+        setShowModal(true);
+    }
 
     const settings = {
         dots: false,
@@ -39,9 +42,9 @@ export default function MainSlider({slides}) {
                             <SlideImage src={slide.src} alt={`Slide ${id}`}/>
                             <SlideTitle>{slide.title}</SlideTitle>
                             <SlideDescription>{slide.desc}</SlideDescription>
-                            <SliderConnectButton>
-                                <ConnectButtonText>Підключитися</ConnectButtonText>
-                            </SliderConnectButton>
+                            <SliderButton onClick={modalOpen}>
+                                <YellowButtonText>Підключитися</YellowButtonText>
+                            </SliderButton>
                         </SlideWrapper>
                     );
                 })}
@@ -50,29 +53,15 @@ export default function MainSlider({slides}) {
 
     );
 }
-
-const SliderConnectButton = styled(ConnectButton)`
-  background: #F1B634;
-  border-radius: 15px;
+const SliderButton = styled(YellowConnect)`
   position: absolute;
   width: 239px;
   height: 48px;
   left: 186px;
   top: 317px;
-
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
-const ConnectButtonText = styled.a`
-  width: 159px;
-  height: 28px;
-  font-size: 24px;
-  line-height: 28px;
-  color: #FFFFFF;
 
-`
 
 const SlideTitle = styled.h2`
   position: absolute;

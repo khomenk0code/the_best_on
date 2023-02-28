@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import {ConnectButton} from "../buttons/connect-button";
+import {FooterButton} from "../buttons/footer"
 import logo from "../../assets/images/logo-footer.png"
 import lifecell from "../../assets/images/lifecell.png"
 import vodafone from "../../assets/images/vodafone.png"
 import kyivstar from "../../assets/images/kyivstar.png"
+
 
 const Footer = () => {
 
@@ -32,15 +33,21 @@ const Footer = () => {
                     <MenuLi>Вигідні пропозиції</MenuLi>
                 </MenuWrapper>
                 <ButtonsWrapper>
-                    <FooterButton>
-                        <FooterButtonText>Telegram</FooterButtonText>
-                    </FooterButton>
-                    <FooterButton>
-                        <FooterButtonText>Facebook</FooterButtonText>
-                    </FooterButton>
-                    <FooterButton>
-                        <FooterButtonText>Instagram</FooterButtonText>
-                    </FooterButton>
+                    <a href="https://t.me/kh0menk0" target="_blank" rel="noopener noreferrer">
+                        <FooterButton>
+                            <FooterButtonText>Telegram</FooterButtonText>
+                        </FooterButton>
+                    </a>
+                    <a href="https://uk-ua.facebook.com/" target="_blank" rel="noopener noreferrer">
+                        <FooterButton>
+                            <FooterButtonText>Facebook</FooterButtonText>
+                        </FooterButton>
+                    </a>
+                    <a href="https://www.instagram.com/khomenko.dev/" target="_blank" rel="noopener noreferrer">
+                        <FooterButton>
+                            <FooterButtonText>Instagram</FooterButtonText>
+                        </FooterButton>
+                    </a>
                 </ButtonsWrapper>
                 <ContactsWrapper>
                     <ContactsTitle> Контакт-центр</ContactsTitle>
@@ -136,18 +143,19 @@ const ButtonsWrapper = styled.div`
   margin-top: 85px;
 `;
 
-const FooterButton = styled(ConnectButton)`
-  border: 1px solid #FFFFFF;
-  background: #0D316D;
-  margin-bottom: 14px;
+// export const FooterButtonTG = styled(FooterButton)`
+//
+// `
+//
+// export const FooterButtonFace = styled(FooterButton)`
+//
+// `
+//
+// export const FooterButtonInst = styled(FooterButton)`
+//
+// `
 
-  &:hover {
-    cursor: pointer;
-    background: #F1B634;
-  }
-`
-
-const FooterButtonText = styled.a`
+const FooterButtonText = styled.div`
   width: 105px;
   height: 28px;
   font-size: 24px;

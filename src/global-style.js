@@ -29,6 +29,19 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  input {
+    border: 1px solid #0D316D;
+    border-radius: 10px;
+    outline: 0;
+    outline-offset: 0;
+    padding: 12px 20px;
+    height: 50px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
 
   * {
     box-sizing: border-box;

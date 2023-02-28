@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../components/header/header"
 import Footer from "../../components/footer/footer";
 import styled from "styled-components";
+import Modal from "../../components/modal/modal";
 
 
 export const TariffsPage = () => {
@@ -10,7 +11,7 @@ export const TariffsPage = () => {
             <Header/>
             <Tariff>Домашний</Tariff>
             <ConnectWrapper>
-                <Connect>Заявочка</Connect>
+                <Modal/>
             </ConnectWrapper>
 
 
@@ -31,10 +32,4 @@ const ConnectWrapper = styled.div`
   justify-content: center;
 `
 
-const Connect = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 847px;
-  height: 887px;
-  border: 5px solid violet;
-`;
+

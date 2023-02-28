@@ -4,7 +4,7 @@ import services from "../../assets/images/services.png"
 import code from "../../assets/images/qr-code.png"
 import vector from "../../assets/images/vector.png"
 import points from "../../assets/images/points.png"
-import {ConnectButton} from "../../components/buttons/connect-button";
+import {Connect} from "../../components/buttons/connect";
 
 
 const AdBlock = () => {
@@ -91,7 +91,7 @@ const QrText = styled.div`
   flex-wrap: nowrap;
 `;
 
-const QrButton = styled(ConnectButton)`
+const QrButton = styled(Connect)`
   margin-top: 30px;
   background-color: #F1B634;
   width: 206px;

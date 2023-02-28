@@ -5,7 +5,7 @@ import money from "../../assets/images/money.png"
 import ded from "../../assets/images/ded.png"
 import paradnii from "../../assets/images/paradnii.png"
 import laught from "../../assets/images/tetki.png"
-import {ConnectButton, HeaderButtonText} from "../../components/buttons/connect-button";
+import {Connect, HeaderButtonText} from "../../components/buttons/connect";
 
 
 const offers = [
@@ -60,7 +60,7 @@ const CardsWrapper = styled.div`
   justify-content: space-between;
 `;
 
-const LoadAllOffersButton = styled(ConnectButton)`
+const LoadAllOffersButton = styled(Connect)`
   margin: 135px auto 0;
   display: block;
   background: #F1B634;

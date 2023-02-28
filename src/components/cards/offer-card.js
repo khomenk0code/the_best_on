@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {ConnectButton, HeaderButtonText} from "../buttons/connect-button";
+import {Connect, HeaderButtonText} from "../buttons/connect";
 
 
 export default function OfferCard({offers}) {
@@ -53,7 +53,7 @@ const OfferImage = styled.img`
   border-radius: 10px;
 `;
 
-const OfferButton = styled(ConnectButton)`
+const OfferButton = styled(Connect)`
   &:hover {
     cursor: pointer;
     background: #F1B634;

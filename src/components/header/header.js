@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 import logo from "../../assets/images/logo.svg";
-import {ConnectButton, HeaderButtonText} from "../buttons/connect-button"
+import {Connect, HeaderButtonText} from "../buttons/connect"
 
 
-const Header = () => {
+const Header = ({setShowModal}) => {
 
-    const handleButtonClick = () => {
-        console.log('Button clicked');
+    const modalOpen = () => {
+        setShowModal(true);
     }
-
 
     return (
         <Wrapper>
@@ -20,9 +19,9 @@ const Header = () => {
                     <Link>Оплата</Link>
                     <Link>Контакти</Link>
                 </LinksWrapper>
-                <ConnectButton onClick={handleButtonClick}>
+                <Connect onClick={modalOpen}>
                     <HeaderButtonText>Підключитися</HeaderButtonText>
-                </ConnectButton>
+                </Connect>
 
             </HeaderContainer>
         </Wrapper>
