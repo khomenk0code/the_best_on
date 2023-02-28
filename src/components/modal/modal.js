@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {YellowConnect, YellowButtonText} from "../buttons/yellow-connect";
+
 
 const Modal = () => {
     return (
@@ -25,9 +25,6 @@ const Modal = () => {
                 </InputSmallWrapper>
                 <InputNote type="text" placeholder="Примiтки"></InputNote>
             </ContactForm>
-            <ContactsButton>
-                <YellowButtonText>Підключитися</YellowButtonText>
-            </ContactsButton>
         </ModalWrapper>
     )
 }
@@ -36,10 +33,9 @@ const ModalWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 847px;
-  margin-bottom: 100px;
-
 
 `
+
 const HeaderText = styled.div`
   text-align: center;
   vertical-align: top;
@@ -98,8 +94,5 @@ const InputNote = styled.input`
   }
 `
 
-const ContactsButton = styled(YellowConnect)`
-  margin-top: 40px;
-`
 
 export default Modal;
