@@ -1,17 +1,20 @@
 {
   "slides": [
     {
+      "id": 1,
       "src": "/assets/images/slide1.png",
       "title": "Оптичний інтернет",
       "desc": "Швидкий інтернет, який працює навіть без світла!"
     },
     {
-      "src": "/assets/images/slide2.png",
+      "id": 2,
+      "src": "/assets/images/slide1.png",
       "title": "Приведи друга",
       "desc": "Рекомендуй наші послуги та отримай бонус!"
     },
     {
-      "src": "/assets/images/slide3.png",
+      "id": 3,
+      "src": "/assets/images/slide1.png",
       "title": "Безкоштовний мiсяць",
       "desc": "При першому пiдключеннi 1-ий мiсяць безкоштовно! "
     }

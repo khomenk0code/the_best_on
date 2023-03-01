@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,8 +7,11 @@ import RightArrow from "../../assets/images/arrow-r.svg"
 import "./arrows.css"
 import styled from "styled-components";
 import {YellowConnect, YellowButtonText} from "../buttons/yellow-connect";
+import {useHttp} from "../../hooks/http.hook";
+import {useEffect} from "react";
 
-export default function MainSlider({slides, setShowModal}) {
+
+function MainSlider({setShowModal}) {
     const PrevArrow = ({currentSlide, slideCount, ...props}) => (
         <img src={LeftArrow} alt="prevArrow" {...props} />
     );
@@ -33,15 +36,27 @@ export default function MainSlider({slides, setShowModal}) {
         draggable: false,
     };
 
+    const {request} = useHttp();
+    const [slides, setSlides] = useState([])
+    console.log(slides)
+
+    useEffect(() => {
+        request("http://localhost:3001/slides")
+            .then(data => setSlides(data))
+            .catch(() => console.log('err'))
+
+    }, [request])
+
+
     return (
         <div>
             <Slider {...settings} >
-                {slides.map((slide, id) => {
+                {slides.map((slides) => {
                     return (
-                        <SlideWrapper key={id}>
-                            <SlideImage src={slide.src} alt={`Slide ${id}`}/>
-                            <SlideTitle>{slide.title}</SlideTitle>
-                            <SlideDescription>{slide.desc}</SlideDescription>
+                        <SlideWrapper key={slides.id}>
+                            <SlideImage src={slides.src} alt={`Slide ${slides.id}`}/>
+                            <SlideTitle>{slides.title}</SlideTitle>
+                            <SlideDescription>{slides.desc}</SlideDescription>
                             <SliderButton onClick={modalOpen}>
                                 <YellowButtonText>Підключитися</YellowButtonText>
                             </SliderButton>
@@ -96,3 +111,4 @@ const SlideWrapper = styled.div`
   position: relative;
 `;
 
+export default React.memo(MainSlider)

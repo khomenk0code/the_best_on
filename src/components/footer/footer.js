@@ -114,14 +114,18 @@ const TitlesLi = styled.li`
   white-space: nowrap;
   margin-top: 15px;
   margin-left: 56px;
-  width: 80px;
+
   list-style-type: none;
   height: 23px;
   font-weight: 100;
   font-size: 20px;
   line-height: 23px;
-
   color: #FFFFFF;
+
+  &:hover {
+    cursor: pointer;
+  }
+
 `
 
 const MenuWrapper = styled.div`
@@ -139,30 +143,17 @@ const ButtonsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-content: space-evenly;
-  margin-left: 201px;
+  margin-left: 140px;
   margin-top: 85px;
 `;
 
-// export const FooterButtonTG = styled(FooterButton)`
-//
-// `
-//
-// export const FooterButtonFace = styled(FooterButton)`
-//
-// `
-//
-// export const FooterButtonInst = styled(FooterButton)`
-//
-// `
 
 const FooterButtonText = styled.div`
-  width: 105px;
   height: 28px;
   font-size: 24px;
   line-height: 28px;
   color: #FFFFFF;
 `
-
 
 const ContactsWrapper = styled.div`
 `;
@@ -172,10 +163,11 @@ const ContactsTitle = styled(Tariffs)`
 `;
 
 const ContactsLi = styled(TitlesLi)`
+
 `
 
 const ContactsOperatorImg = styled.img`
-  width: 20px;
+
   height: 20px;
   margin-right: 15px;
   margin-left: 90px;
