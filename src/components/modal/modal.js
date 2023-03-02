@@ -99,7 +99,7 @@ const Modal = () => {
                         value={values.house}
                     >
                     </InputSmall>
-                    {touched.house && errors.house ? <Error1>{errors.house}</Error1> : null}
+                    {touched.house && errors.house ? <Error2>{errors.house}</Error2> : null}
                 </InputSmallWrapper>
                 <ContactFormTitle>Вашi контакти</ContactFormTitle>
                 <InputPIB
@@ -112,7 +112,7 @@ const Modal = () => {
                 >
 
                 </InputPIB>
-                {touched.name && errors.name ? <Error1>{errors.name}</Error1> : null}
+                {touched.name && errors.name ? <Error3>{errors.name}</Error3> : null}
                 <InputSmallWrapper>
                     <InputSmall
                         type="text"
@@ -212,19 +212,24 @@ const InputSmall = styled.input`
 `
 
 
-const InputNote = styled.input`
+const InputNote = styled.textarea`
   width: 845px;
   height: 130px;
   margin-top: 25px;
+  padding: 15px;
 
   &::placeholder {
     position: absolute;
     top: 10%;
     left: 2%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    line-height: 23px;
   }
 `
 
 const Error1 = styled.div`
+
   position: absolute;
   margin-left: 15px;
   margin-top: 50px;
@@ -233,6 +238,10 @@ const Error1 = styled.div`
 
 const Error2 = styled(Error1)`
   margin-left: 447px;
+`
+
+const Error3 = styled(Error1)`
+  margin-top: 0;
 `
 
 
