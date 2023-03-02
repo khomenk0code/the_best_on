@@ -1,19 +1,32 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import {Connect, HeaderButtonText} from "../buttons/connect";
 import {SliderTextPrefix} from "../../pages/main/slider.component"
+import {useHttp} from "../../hooks/http.hook";
+import {useEffect} from "react";
+
+export default function TariffCard() {
+    const {request} = useHttp();
+    const [tariffs, setTariffs] = useState([])
 
 
-export default function TariffCard({cards}) {
+    useEffect(() => {
+        request("http://localhost:3002/tariffs")
+            .then(data => setTariffs(data))
+            .catch(() => console.log('err'))
+
+    }, [request])
+
+
     return (
         <>
-            {cards.map((cards, id) => {
+            {tariffs.map((tariffs) => {
                 return (
-                    <TariffCardWrapper key={id}>
-                        <TariffName>{cards.name}</TariffName>
-                        <TariffPriceValue>{cards.value}</TariffPriceValue>
+                    <TariffCardWrapper key={tariffs.id}>
+                        <TariffName>{tariffs.name}</TariffName>
+                        <TariffPriceValue>{tariffs.value}</TariffPriceValue>
                         <TariffBottomText>грн/міс</TariffBottomText>
-                        <TariffTextPrefix>до<TariffMaxPrice>{cards.maxmb}</TariffMaxPrice></TariffTextPrefix>
+                        <TariffTextPrefix>до<TariffMaxPrice>{tariffs.maxmb}</TariffMaxPrice></TariffTextPrefix>
                         <TariffBottomText>мбіт/с</TariffBottomText>
                         <TariffButton>
                             <HeaderButtonText>Підключитися</HeaderButtonText>

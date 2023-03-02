@@ -1,14 +1,27 @@
-import React from "react";
+import React, {useEffect, useState, useCallback} from "react";
 import styled from "styled-components";
 import {Connect, HeaderButtonText} from "../buttons/connect";
+import {useHttp} from "../../hooks/http.hook";
 
 
-export default function OfferCard({offers}) {
+function OfferCard({loadedCards}) {
+
+    const {request} = useHttp();
+    const [offers, setOffers] = useState([])
+
+    useEffect(() => {
+        request(`http://localhost:3003/offers?_limit=${loadedCards}`)
+            .then(data => setOffers(data))
+            .catch(() => console.log('err'))
+
+    }, [loadedCards, request])
+
     return (
         <>
-            {offers.map((offers, id) => {
+            {offers.map((offers) => {
                 return (
-                    <OfferCardWrapper key={id}>
+
+                    <OfferCardWrapper key={offers.id}>
                         <OfferName>{offers.name}</OfferName>
                         <OfferDesc>{offers.desc}</OfferDesc>
                         <OfferImage src={offers.img} alt={offers.name}/>
@@ -16,6 +29,7 @@ export default function OfferCard({offers}) {
                             <HeaderButtonText>Детальнiше</HeaderButtonText>
                         </OfferButton>
                     </OfferCardWrapper>
+
                 );
             })}
         </>
@@ -63,5 +77,5 @@ const OfferButton = styled(Connect)`
 `;
 
 
-
+export default React.memo(OfferCard);
 

@@ -1,15 +1,6 @@
 import React from "react";
-import TariffCard from "../../components/cards/tarrif-card";
+import TariffCard from "../../components/cards/tariff-card";
 import styled from "styled-components";
-
-
-const cards = [
-    {name: 'Базовий', value: 150, maxmb: 100},
-    {name: 'Домашній', value: 170, maxmb: 300},
-    {name: 'Для бізнеса', value: 200, maxmb: 1000},
-    {name: 'Безліміт', value: 250, maxmb: 1000},
-]
-
 
 const Tariffs = () => {
     return (
@@ -18,12 +9,9 @@ const Tariffs = () => {
                 Тарифи
             </TariffsHeader>
             <CardsWrapper>
-                <TariffCard title="Tariffs" cards={cards}/>
+                <TariffCard title="Tariffs"/>
             </CardsWrapper>
-
         </TariffsWrapper>
-
-
     )
 }
 
@@ -55,4 +43,4 @@ const CardsWrapper = styled.div`
 `;
 
 
-export default Tariffs;
+export default React.memo(Tariffs);

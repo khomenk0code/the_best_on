@@ -1,8 +1,47 @@
 import React from "react";
+import {useFormik} from "formik";
+import * as Yup from "yup";
 import styled from "styled-components";
 
 
+const validationSchema = Yup.object().shape({
+    region: Yup.string().required("Оберіть область"),
+    city: Yup.string().required("Оберіть місто"),
+    street: Yup.string().required("Введіть вулицю"),
+    house: Yup.string().required("Введіть номер будинку"),
+    name: Yup.string().required("Введіть ПІБ"),
+    email: Yup.string().email("Невірний формат електронної пошти"),
+    phone: Yup.string()
+        .matches(/^\+38\(0\d{2}\)\d{3}-\d{2}-\d{2}$/, "Невірний формат телефону")
+        .required("Введіть номер телефону"),
+});
+
 const Modal = () => {
+    const formik = useFormik({
+        initialValues: {
+            region: "",
+            city: "",
+            street: "",
+            house: "",
+            name: "",
+            email: "",
+            phone: "",
+            notes: "",
+        },
+        validationSchema: validationSchema,
+        onSubmit: (values) => {
+            alert(JSON.stringify(values, null, 2));
+        },
+    });
+
+    const {
+        values,
+        touched,
+        errors,
+        handleChange,
+        handleBlur,
+    } = formik;
+
     return (
         <ModalWrapper>
             <HeaderText>Заявка на підключення</HeaderText>
@@ -10,20 +49,98 @@ const Modal = () => {
             <ContactForm>
                 <ContactFormTitle>Ваша адреса</ContactFormTitle>
                 <InputSmallWrapper>
-                    <InputSmall type="text" placeholder="Область"></InputSmall>
-                    <InputSmall type="text" placeholder="Мiсто"></InputSmall>
+                    <SelectSmall
+                        name="region"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.region}
+                    >
+                        <option value={null} selected>Область</option>
+                        <option>Киевская</option>
+                        <option>Львовская</option>
+                        <option>Харьковская</option>
+                    </SelectSmall>
+                    {touched.region && errors.region ? (
+                        <Error1>{errors.region}</Error1>
+                    ) : null}
+                    <SelectSmall
+                        name="city"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.city}
+                    >
+                        <option value={null} selected>Мiсто</option>
+                        <option>Киев</option>
+                        <option>Львов</option>
+                        <option>Харьков</option>
+                    </SelectSmall>
+                    {touched.city && errors.city ? <Error2>{errors.city}</Error2> : null}
                 </InputSmallWrapper>
                 <InputSmallWrapper>
-                    <InputSmall type="text" placeholder="Вулиця"></InputSmall>
-                    <InputSmall type="text" placeholder="Будинок"></InputSmall>
+                    <SelectSmall
+                        type="text"
+                        name="street"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.street}
+                    >
+                        <option value={null} selected>Вулиця</option>
+                        <option>Носа</option>
+                        <option>Кита</option>
+                        <option>Бандери</option>
+                    </SelectSmall>
+                    {touched.street && errors.street ? <Error1>{errors.street}</Error1> : null}
+                    <InputSmall
+                        type="text"
+                        name="house"
+                        placeholder="Будинок"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.house}
+                    >
+                    </InputSmall>
+                    {touched.house && errors.house ? <Error1>{errors.house}</Error1> : null}
                 </InputSmallWrapper>
                 <ContactFormTitle>Вашi контакти</ContactFormTitle>
-                <InputPIB type="text" placeholder="ПІБ"></InputPIB>
+                <InputPIB
+                    type="text"
+                    placeholder="ПІБ"
+                    name="name"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.name}
+                >
+
+                </InputPIB>
+                {touched.name && errors.name ? <Error1>{errors.name}</Error1> : null}
                 <InputSmallWrapper>
-                    <InputSmall type="text" placeholder="e-mail"></InputSmall>
-                    <InputSmall type="text" placeholder="+38(099)..."></InputSmall>
+                    <InputSmall
+                        type="text"
+                        placeholder="e-mail"
+                        name="email"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.email}
+                    />
+                    {touched.email && errors.email ? <Error1>{errors.email}</Error1> : null}
+                    <InputSmall
+                        type="tel"
+                        placeholder="+38(099)..."
+                        name="phone"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.phone}
+                    />
+                    {touched.phone && errors.phone ? <Error2>{errors.phone}</Error2> : null}
                 </InputSmallWrapper>
-                <InputNote type="text" placeholder="Примiтки"></InputNote>
+                <InputNote
+                    type="text"
+                    placeholder="Примiтки"
+                    name="notes"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.notes}
+                />
             </ContactForm>
         </ModalWrapper>
     )
@@ -33,6 +150,7 @@ const ModalWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 847px;
+  position: relative
 
 `
 
@@ -62,12 +180,12 @@ const ContactFormTitle = styled.div`
 const ContactForm = styled.div`
   height: 649px;
   width: 847px;
+
 `
 
 const InputPIB = styled.input`
   width: 845px;
   border-radius: 10px;
-
 
 `
 
@@ -75,6 +193,18 @@ const InputSmallWrapper = styled.div`
   display: flex;
   margin-top: 25px;
   justify-content: space-between;
+
+`
+
+const SelectSmall = styled.select`
+  width: 412px;
+  height: 50px;
+  border: 1px solid #0D316D;
+  border-radius: 10px;
+  font-size: 20px;
+  line-height: 23px;
+  color: #0D316D;
+  padding: 10px;
 `
 
 const InputSmall = styled.input`
@@ -89,9 +219,20 @@ const InputNote = styled.input`
 
   &::placeholder {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 10%;
+    left: 2%;
   }
+`
+
+const Error1 = styled.div`
+  position: absolute;
+  margin-left: 15px;
+  margin-top: 50px;
+  color: red;
+`
+
+const Error2 = styled(Error1)`
+  margin-left: 447px;
 `
 
 

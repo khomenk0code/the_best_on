@@ -38,7 +38,7 @@ function MainSlider({setShowModal}) {
 
     const {request} = useHttp();
     const [slides, setSlides] = useState([])
-    console.log(slides)
+
 
     useEffect(() => {
         request("http://localhost:3001/slides")

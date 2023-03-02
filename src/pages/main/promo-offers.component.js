@@ -1,32 +1,47 @@
-import React from "react";
-import OfferCard from "../../components/cards/offer-card";
+import React, {useCallback, useState, useEffect} from "react";
+import OfferCardList from "../../components/cards/offer-card";
 import styled from "styled-components";
-import money from "../../assets/images/money.png"
-import ded from "../../assets/images/ded.png"
-import paradnii from "../../assets/images/paradnii.png"
-import laught from "../../assets/images/tetki.png"
 import {Connect, HeaderButtonText} from "../../components/buttons/connect";
-
-
-const offers = [
-    {name: 'Приведи друга', desc: 'Рекомендуй наші послуги та отримай бонус', img: laught},
-    {name: 'Виділений сервер', desc: 'Рекомендуй наші послуги та отримай бонус', img: paradnii},
-    {name: 'Безкоштовний місяць', desc: 'Перший мiсяць без....', img: money},
-    {name: 'Фіксована IP', desc: 'Рекомендуй наші послуги та отримай бонус', img: ded},
-]
+import {useHttp} from "../../hooks/http.hook";
 
 
 const Offers = () => {
+
+    const {request} = useHttp();
+    const [loadedCards, setLoadedCards] = useState(4)
+    const [totalCards, setTotalCards] = useState(0);
+    const [disableLoadMoreButton, setDisableLoadMoreButton] = useState(false);
+
+    useEffect(() => {
+        if (loadedCards >= totalCards) {
+            setDisableLoadMoreButton(true);
+        } else {
+            setDisableLoadMoreButton(false);
+        }
+    }, [loadedCards, totalCards]);
+
+    useEffect(() => {
+        request(`http://localhost:3003/offers`)
+            .then(data => setTotalCards(data.length))
+            .catch(() => console.log('err'))
+    }, [request])
+
+    const handleLoadMore = useCallback(() => {
+        setLoadedCards(prevCount => prevCount + 4);
+    }, []);
+
     return (
+
 
         <OffersWrapper>
             <OffersHeader>
                 Вигідні пропозиції
             </OffersHeader>
             <CardsWrapper>
-                <OfferCard title="Tariffs" offers={offers}/>
+                {loadedCards &&
+                    <OfferCardList loadedCards={loadedCards} setLoadedCards={setLoadedCards} title="Tariffs"/>}
             </CardsWrapper>
-            <LoadAllOffersButton>
+            <LoadAllOffersButton disabled={disableLoadMoreButton} onClick={handleLoadMore}>
                 <LoadAllOffersText>Всі пропозиції</LoadAllOffersText>
             </LoadAllOffersButton>
         </OffersWrapper>
@@ -38,7 +53,6 @@ const OffersWrapper = styled.div`
   display: flex;
   text-align: center;
   margin-bottom: 102px;
-  height: 783px;
   align-items: center;
 `;
 
@@ -55,14 +69,13 @@ const OffersHeader = styled.h2`
 
 const CardsWrapper = styled.div`
   display: flex;
-  height: 445px;
   width: 1280px;
   justify-content: space-between;
+  flex-wrap: wrap
 `;
 
 const LoadAllOffersButton = styled(Connect)`
-  margin: 135px auto 0;
-  display: block;
+  display: ${props => props.disabled ? 'none' : 'block'};
   background: #F1B634;
 
   &:hover {
@@ -74,4 +87,4 @@ const LoadAllOffersText = styled(HeaderButtonText)`
   color: #FFFFFF;
 `;
 
-export default Offers;
+export default React.memo(Offers);

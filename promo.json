@@ -1,0 +1,82 @@
+{
+  "offers": [
+    {
+      "id": 1,
+      "name": "Приведи друга",
+      "desc": "Рекомендуй наші послуги та отримай бонус",
+      "img": "/assets/images/tetki.png"
+    },
+    {
+      "id": 2,
+      "name": "Виділений сервер",
+      "desc": "Рекомендуй наші послуги та отримай бонус",
+      "img": "/assets/images/paradnii.png"
+    },
+    {
+      "id": 3,
+      "name": "Безкоштовний місяць",
+      "desc": "Перший мiсяць без....",
+      "img": "/assets/images/money.png"
+    },
+    {
+      "id": 4,
+      "name": "Фіксована IP",
+      "desc": "Рекомендуй наші послуги та отримай бонус",
+      "img": "/assets/images/ded.png"
+    },
+    {
+      "id": 5,
+      "name": "Приведи друга",
+      "desc": "Рекомендуй наші послуги та отримай бону1111с",
+      "img": "/assets/images/tetki.png"
+    },
+    {
+      "id": 6,
+      "name": "Виділений сервер11",
+      "desc": "Рекомендуй наші послуги та отримай бону111с",
+      "img": "/assets/images/paradnii.png"
+    },
+    {
+      "id": 7,
+      "name": "Безкоштовний місяць111",
+      "desc": "Перший мiсяць бе111з....",
+      "img": "/assets/images/money.png"
+    },
+    {
+      "id": 8,
+      "name": "Фіксована IP1111",
+      "desc": "Рекомендуй наші послуги та отримай бонус",
+      "img": "/assets/images/ded.png"
+    },
+    {
+      "id": 9,
+      "name": "Приведи друга123",
+      "desc": "Рекомендуй наші послуги та отримай бонус",
+      "img": "/assets/images/tetki.png"
+    },
+    {
+      "id": 10,
+      "name": "Виділений сервер123",
+      "desc": "Рекомендуй наші послуги та отримай бонус123",
+      "img": "/assets/images/paradnii.png"
+    },
+    {
+      "id": 11,
+      "name": "Безкоштовний місяць123",
+      "desc": "Перший мiсяць без....",
+      "img": "/assets/images/money.png"
+    },
+    {
+      "id": 12,
+      "name": "Фіксована IP123",
+      "desc": "Рекомендуй наші послуги та отримай бонус",
+      "img": "/assets/images/ded.png"
+    },
+    {
+      "id": 13,
+      "name": "Фіксована IP12asfasf3",
+      "desc": "VLADIK",
+      "img": "/assets/images/ded.png"
+    }
+  ]
+}
