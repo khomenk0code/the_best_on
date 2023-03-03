@@ -8,6 +8,6 @@ The best on is a website redesign project aimed at improving the user experience
 
 * React.js
 * Styled Components
-* * Formik
+* Formik
 * Yup
 * JSON Server
