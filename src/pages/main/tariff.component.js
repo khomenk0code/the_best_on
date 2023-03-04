@@ -19,9 +19,13 @@ const TariffsWrapper = styled.div`
   flex-direction: column;
   display: flex;
   text-align: center;
-  margin-bottom: 102px;
+  margin-bottom: 50px;
   height: 583px;
   align-items: center;
+
+  @media (max-width: 768px) {
+    height: auto;
+  }
 `;
 
 const TariffsHeader = styled.h2`
@@ -33,6 +37,12 @@ const TariffsHeader = styled.h2`
   line-height: 68px;
   color: #0D316D;
   height: 138px;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+    line-height: 50px;
+    height: auto;
+  }
 `;
 
 const CardsWrapper = styled.div`
@@ -40,6 +50,13 @@ const CardsWrapper = styled.div`
   height: 445px;
   width: 1280px;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 

@@ -1,7 +1,8 @@
-import React, {useEffect, useState, useCallback} from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
-import {Connect, HeaderButtonText} from "../buttons/connect";
+
 import {useHttp} from "../../hooks/http.hook";
+import {Button, BUTTON_TYPES} from "../buttons/button";
 
 
 function OfferCard({loadedCards}) {
@@ -10,7 +11,7 @@ function OfferCard({loadedCards}) {
     const [offers, setOffers] = useState([])
 
     useEffect(() => {
-        request(`http://localhost:3003/offers?_limit=${loadedCards}`)
+        request(`http://localhost:3001/offers?_limit=${loadedCards}`)
             .then(data => setOffers(data))
             .catch(() => console.log('err'))
 
@@ -25,9 +26,7 @@ function OfferCard({loadedCards}) {
                         <OfferName>{offers.name}</OfferName>
                         <OfferDesc>{offers.desc}</OfferDesc>
                         <OfferImage src={offers.img} alt={offers.name}/>
-                        <OfferButton>
-                            <HeaderButtonText>Детальнiше</HeaderButtonText>
-                        </OfferButton>
+                        <Button text="Детальнiше" type={BUTTON_TYPES.primaryOutline}/>
                     </OfferCardWrapper>
 
                 );
@@ -39,42 +38,38 @@ function OfferCard({loadedCards}) {
 const OfferCardWrapper = styled.div`
   display: flex;
   width: 305px;
-  height: 521px;
+  height: 522px;
   border: 1px solid #0D316D;
   border-radius: 15px;
   flex-direction: column;
   margin-bottom: 50px;
+  align-items: center;
+  justify-content: space-evenly;
 `;
 
 const OfferName = styled.div`
   font-size: 30px;
   line-height: 35px;
   color: #0D316D;
-  margin-top: 50px;
+
 `;
 
 const OfferDesc = styled.div`
-  margin-top: 30px;
+
   font-size: 20px;
   line-height: 23px;
   color: #0D316D;
 `;
 
 const OfferImage = styled.img`
-  margin: 33px 29px 0 29px;
+
   width: 246px;
   height: 189px;
   border-radius: 10px;
+
 `;
 
-const OfferButton = styled(Connect)`
-  &:hover {
-    cursor: pointer;
-    background: #F1B634;
-  }
 
-  margin: auto 33px 50px 33px;
-`;
 
 
 export default React.memo(OfferCard);

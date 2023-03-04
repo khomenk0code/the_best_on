@@ -1,4 +1,74 @@
 {
+  "clientdata": [
+    {
+      "id": "69ad51c9-6809-48c0-a9f5-b1558fe1eb46",
+      "region": "Киевская",
+      "city": "Киев",
+      "street": "Кита",
+      "house": "asdasd",
+      "name": "asdasdasdd",
+      "email": "asd@adsad.fff",
+      "phone": "+38(021)123-12-55",
+      "notes": ""
+    },
+    {
+      "id": "be541fdf-68a9-4d29-95c5-24983b2a49ee",
+      "region": "Киевская",
+      "city": "Киев",
+      "street": "Кита",
+      "house": "ddfg",
+      "name": "dgsdfg",
+      "email": "fsd@dsa.com",
+      "phone": "+38(099)123-32-12",
+      "notes": "asd"
+    }
+  ],
+  "tariffs": [
+    {
+      "id": 1,
+      "name": "Базовий",
+      "value": 150,
+      "maxmb": 100
+    },
+    {
+      "id": 2,
+      "name": "Домашній",
+      "value": 170,
+      "maxmb": 300
+    },
+    {
+      "id": 3,
+      "name": "Для бізнеса",
+      "value": 200,
+      "maxmb": 1000
+    },
+    {
+      "id": 4,
+      "name": "Безліміт",
+      "value": 250,
+      "maxmb": 1000
+    }
+  ],
+  "slides": [
+    {
+      "id": 1,
+      "src": "/assets/images/slide1.png",
+      "title": "Оптичний інтернет",
+      "desc": "Швидкий інтернет, який працює навіть без світла!"
+    },
+    {
+      "id": 2,
+      "src": "/assets/images/slide1.png",
+      "title": "Приведи друга",
+      "desc": "Рекомендуй наші послуги та отримай бонус!"
+    },
+    {
+      "id": 3,
+      "src": "/assets/images/slide1.png",
+      "title": "Безкоштовний мiсяць",
+      "desc": "При першому пiдключеннi 1-ий мiсяць безкоштовно! "
+    }
+  ],
   "offers": [
     {
       "id": 1,
@@ -75,8 +145,9 @@
     {
       "id": 13,
       "name": "Фіксована IP12asfasf3",
-      "desc": "VLADIK",
+      "desc": "1243asf",
       "img": "/assets/images/ded.png"
     }
   ]
 }
+

@@ -1,8 +1,8 @@
 import React, {useCallback, useState, useEffect} from "react";
 import OfferCardList from "../../components/cards/offer-card";
 import styled from "styled-components";
-import {Connect, HeaderButtonText} from "../../components/buttons/connect";
 import {useHttp} from "../../hooks/http.hook";
+import {Button, BUTTON_TYPES} from "../../components/buttons/button";
 
 
 const Offers = () => {
@@ -21,7 +21,7 @@ const Offers = () => {
     }, [loadedCards, totalCards]);
 
     useEffect(() => {
-        request(`http://localhost:3003/offers`)
+        request(`http://localhost:3001/offers`)
             .then(data => setTotalCards(data.length))
             .catch(() => console.log('err'))
     }, [request])
@@ -41,9 +41,12 @@ const Offers = () => {
                 {loadedCards &&
                     <OfferCardList loadedCards={loadedCards} setLoadedCards={setLoadedCards} title="Tariffs"/>}
             </CardsWrapper>
-            <LoadAllOffersButton disabled={disableLoadMoreButton} onClick={handleLoadMore}>
-                <LoadAllOffersText>Всі пропозиції</LoadAllOffersText>
-            </LoadAllOffersButton>
+            <Button
+                disabled={disableLoadMoreButton}
+                onClick={handleLoadMore}
+                text="Всі пропозиції"
+                type={BUTTON_TYPES.primaryOutline}
+            />
         </OffersWrapper>
     )
 }
@@ -69,22 +72,23 @@ const OffersHeader = styled.h2`
 
 const CardsWrapper = styled.div`
   display: flex;
-  width: 1280px;
   justify-content: space-between;
-  flex-wrap: wrap
-`;
+  flex-wrap: wrap;
+  width: 1280px;
 
-const LoadAllOffersButton = styled(Connect)`
-  display: ${props => props.disabled ? 'none' : 'block'};
-  background: #F1B634;
+  @media (max-width: 1280px) {
+    width: 960px;
+  }
 
-  &:hover {
-    cursor: pointer;
+  @media (max-width: 960px) {
+    width: 640px;
+  }
+
+  @media (max-width: 640px) {
+    width: 100%;
+    padding: 0 16px;
   }
 `;
 
-const LoadAllOffersText = styled(HeaderButtonText)`
-  color: #FFFFFF;
-`;
 
 export default React.memo(Offers);

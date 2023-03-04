@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import logo from "../../assets/images/logo.svg";
-import {Connect, HeaderButtonText} from "../buttons/connect"
-
+import {Button, BUTTON_TYPES} from "../buttons/button";
 
 const Header = ({setShowModal}) => {
 
@@ -19,31 +18,45 @@ const Header = ({setShowModal}) => {
                     <Link>Оплата</Link>
                     <Link>Контакти</Link>
                 </LinksWrapper>
-                <Connect onClick={modalOpen}>
-                    <HeaderButtonText>Підключитися</HeaderButtonText>
-                </Connect>
-
+                <Button onClick={modalOpen} text="Підключитися" type={BUTTON_TYPES.primaryOutline}/>
             </HeaderContainer>
         </Wrapper>
     )
 }
 
-const  Wrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-`
-const  HeaderContainer = styled.div`
+
+  @media (max-width: 1366px) {
+    padding: 0 30px;
+  }
+`;
+
+const HeaderContainer = styled.div`
   height: 84px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-width: 1300px;
   margin-bottom: 102px;
-`
 
-const  LinksWrapper = styled.div`
+  @media (max-width: 1366px) {
+    min-width: auto;
+    justify-content: space-around;
+    margin-bottom: 50px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+    margin-bottom: 30px;
+  }
+`;
+
+const LinksWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -51,8 +64,20 @@ const  LinksWrapper = styled.div`
   width: 393px;
   height: 23px;
 
-`
-const  Link = styled.a`
+  @media (max-width: 1366px) {
+    width: auto;
+    gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    height: auto;
+  }
+`;
+
+const Link = styled.a`
   &:hover {
     cursor: pointer;
   }
@@ -66,7 +91,21 @@ const  Link = styled.a`
   flex: none;
   order: 0;
   flex-grow: 0;
-`
+
+  @media (max-width: 1366px) {
+    font-size: 18px;
+    line-height: 21px;
+    height: 21px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 19px;
+    height: 19px;
+    margin-bottom: 10px;
+    width: auto;
+  }
+`;
 
 const Logo = styled.img`
   height: 42px;
@@ -74,9 +113,10 @@ const Logo = styled.img`
   &:hover {
     cursor: pointer;
   }
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+  }
 `;
-
-
-
 
 export default Header;

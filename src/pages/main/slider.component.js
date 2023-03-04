@@ -1,14 +1,18 @@
 import styled from "styled-components";
 
-
 const SliderFooter = () => {
-
     return (
         <SliderFooterWrapper>
             <TextContainer>
-                <SliderText><SliderTextPrefix>до</SliderTextPrefix>1000</SliderText>
-                <SliderText><SliderTextPrefix>від</SliderTextPrefix>100</SliderText>
-                <SliderText><SliderTextPrefix>вже</SliderTextPrefix>14</SliderText>
+                <SliderText>
+                    <SliderTextPrefix>до</SliderTextPrefix>1000
+                </SliderText>
+                <SliderText>
+                    <SliderTextPrefix>від</SliderTextPrefix>100
+                </SliderText>
+                <SliderText>
+                    <SliderTextPrefix>вже</SliderTextPrefix>14
+                </SliderText>
             </TextContainer>
             <TextBottom>
                 <SliderTextMb> мбіт/с </SliderTextMb>
@@ -20,55 +24,83 @@ const SliderFooter = () => {
 };
 
 const SliderFooterWrapper = styled.div`
-  margin: 66.5px 201px 102px 201px;
+  margin: 66.5px 10% 102px 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  @media (min-width: 768px) {
+    margin: 66.5px 201px 102px 201px;
+  }
 `;
 
 const TextContainer = styled.div`
-  width: 700px;
+  width: 80%;
+  max-width: 700px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 15px;
+  @media (min-width: 768px) {
+    width: 700px;
+  }
 `;
 
 const SliderText = styled.div`
   display: flex;
   justify-content: center;
   align-items: baseline;
-  width: 160px;
+  width: 33%;
+  max-width: 160px;
   height: 61px;
-  font-size: 50px;
+  font-size: 5vw;
   color: #f1b634;
+  @media (min-width: 768px) {
+    width: 160px;
+    font-size: 50px;
+  }
 `;
 
 export const SliderTextPrefix = styled.div`
-  font-size: 24px;
+  font-size: 4vw;
   line-height: 28px;
   color: #0d316d;
   white-space: nowrap;
   margin-right: 10px;
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 const SliderTextMb = styled.div`
-  margin-left: 75px;
+  margin-left: 10%;
+  font-size: 3vw;
+  @media (min-width: 768px) {
+    margin-left: 75px;
+    font-size: 24px;
+  }
 `;
 
 const SliderTextUah = styled.div`
-  margin-left: 10px;
+  margin-left: 5%;
+  font-size: 3vw;
+  @media (min-width: 768px) {
+    margin-left: 10px;
+    font-size: 24px;
+  }
 `;
 
 const TextBottom = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 763px;
-  font-size: 24px;
+  width: 80%;
+  max-width: 763px;
+  font-size: 4vw;
   line-height: 28px;
-  color: #0D316D;
+  color: #0d316d;
+  @media (min-width: 768px) {
+    width: 763px;
+    font-size: 24px;
+  }
 `;
-
 
 export default SliderFooter;

@@ -8,7 +8,7 @@ import Tariffs from "./tariff.component";
 import AdBlock from "./tgbot-ad.component"
 import Offers from "./promo-offers.component";
 import Footer from "../../components/footer/footer";
-import ModalMainPage from "../../components/modal/modal-main-page";
+import ConnectForm from "../../components/forms/connect-form";
 import styled from "styled-components";
 import cross from "../../assets/images/cross.png"
 
@@ -34,7 +34,7 @@ export const MainPage = () => {
                 <MainModalWrapper onClick={handleModalClose}>
                     <BgWrapper onClick={e => e.stopPropagation()}>
                         <Cross src={cross} onClick={handleModalClose}/>
-                        <ModalMain/>
+                        <ConnectForm buttonCentered/>
                     </BgWrapper>
                 </MainModalWrapper>
             )}
@@ -69,6 +69,8 @@ const BgWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transform: scale(0.85); // уменьшение масштаба формы в 2 раза
+  transform-origin: center center; // установка точки применения transform
 
 `
 
@@ -87,7 +89,3 @@ const Cross = styled.img`
 
 `;
 
-const ModalMain = styled(ModalMainPage)`
-
-
-`

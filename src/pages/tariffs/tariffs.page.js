@@ -2,8 +2,7 @@ import React from "react";
 import Header from "../../components/header/header"
 import Footer from "../../components/footer/footer";
 import styled from "styled-components";
-import Modal from "../../components/modal/modal";
-import {YellowButtonText, YellowConnect} from "../../components/buttons/yellow-connect";
+import ConnectForm from "../../components/forms/connect-form";
 
 
 export const TariffsPage = () => {
@@ -12,12 +11,8 @@ export const TariffsPage = () => {
             <Header/>
             <Tariff>Домашний</Tariff>
             <ConnectWrapper>
-                <Modal/>
-                <ContactsButton>
-                    <YellowButtonText>Підключитися</YellowButtonText>
-                </ContactsButton>
+                <ConnectForm/>
             </ConnectWrapper>
-
             <Footer/>
         </div>
     )
@@ -35,10 +30,5 @@ const ConnectWrapper = styled.div`
   align-items: center;
   flex-direction: column;
 `
-const ContactsButton = styled(YellowConnect)`
-  margin-top: 30px;
-  margin-right: 606px;
-  margin-bottom: 100px;
 
-`
 

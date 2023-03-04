@@ -4,7 +4,7 @@ import services from "../../assets/images/services.png"
 import code from "../../assets/images/qr-code.png"
 import vector from "../../assets/images/vector.png"
 import points from "../../assets/images/points.png"
-import {Connect} from "../../components/buttons/connect";
+import {Button} from "../../components/buttons/button";
 
 
 const AdBlock = () => {
@@ -18,9 +18,7 @@ const AdBlock = () => {
                     <QrHeader>Скануй цей QR код</QrHeader>
                     <QrCode src={code} alt="QR-code"/>
                     <QrText>або натискай, щоб перейти за посиланням</QrText>
-                    <QrButton>
-                        <QrButtonText>Посилання </QrButtonText>
-                    </QrButton>
+                    <Button text="Посилання"/>
                 </QrWrapper>
                 <VectorWrapper> та користуйся послугами зручно
                     <Vector src={vector} alt="vector"/>
@@ -40,6 +38,10 @@ const AdWrapper = styled.div`
   margin-bottom: 102px;
   height: 750px;
   align-items: center;
+  @media (max-width: 768px) {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 `;
 
 const AdHeader = styled.h2`
@@ -52,18 +54,37 @@ const AdHeader = styled.h2`
   line-height: 68px;
   color: #0D316D;
   height: 138px;
+  @media (max-width: 768px) {
+    font-size: 30px;
+    line-height: 40px;
+    margin-top: 40px;
 `;
 
 
 const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 1069px;
+  min-width: 1069px;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+  }
+
 `;
 
 const QrWrapper = styled.div`
-  width: 267px;
-  align-items: flex-start;
+  display: flex;
+  flex-flow: column wrap;
+  width: 270px;
+  align-items: center;
+  justify-content: space-around;
+
+
+  @media (max-width: 768px) {
+    margin-bottom: 40px;
+  }
 `;
 
 
@@ -80,6 +101,9 @@ const QrCode = styled.img`
   text-align: center;
   width: 197px;
   height: 238px;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const QrText = styled.div`
@@ -89,25 +113,12 @@ const QrText = styled.div`
   align-items: center;
   color: #0D316D;
   flex-wrap: nowrap;
-`;
+  margin-bottom: 30px;
 
-const QrButton = styled(Connect)`
-  margin-top: 30px;
-  background-color: #F1B634;
-  width: 206px;
-  height: 48px;
-
-  &:hover {
-    cursor: pointer;
+  @media (max-width: 768px) {
+    width: 100%;
   }
-`;
 
-const QrButtonText = styled.a`
-  width: 126px;
-  height: 28px;
-  font-size: 24px;
-  line-height: 28px;
-  color: #FFFFFF;
 `;
 
 
@@ -118,11 +129,24 @@ const VectorWrapper = styled.div`
   font-size: 20px;
   line-height: 23px;
   color: #0D316D;
+
+  @media (max-width: 1200px) {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Services = styled.img`
   width: 238px;
   height: 454px;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
 
 const Points = styled.img`
@@ -130,9 +154,16 @@ const Points = styled.img`
   height: 450px;
   display: flex;
 
+  @media (max-width: 1200px) {
+    display: none;
+  }
+
 `;
 const Vector = styled.img`
   margin-top: 37px;
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
 `;
 
 export default AdBlock;

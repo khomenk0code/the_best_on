@@ -1,7 +1,10 @@
 import React from "react";
+import {useHttp} from "../../hooks/http.hook";
 import {useFormik} from "formik";
+import {v4 as uuidv4} from 'uuid';
 import * as Yup from "yup";
 import styled from "styled-components";
+import {Button} from "../buttons/button";
 
 
 const validationSchema = Yup.object().shape({
@@ -16,7 +19,9 @@ const validationSchema = Yup.object().shape({
         .required("Введіть номер телефону"),
 });
 
-const Modal = () => {
+const ConnectForm = (props) => {
+    const {request} = useHttp();
+
     const formik = useFormik({
         initialValues: {
             region: "",
@@ -30,7 +35,18 @@ const Modal = () => {
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
-            alert(JSON.stringify(values, null, 2));
+            const newClient = {
+                id: uuidv4(),
+                ...values,
+            };
+            console.log("newClient", newClient);
+
+
+            request("http://localhost:3001/clientdata", "POST", JSON.stringify(newClient))
+                .then(res => console.log(res, 'Отправка успешна'))
+                .catch(err => console.log(err));
+
+            formik.resetForm();
         },
     });
 
@@ -40,57 +56,62 @@ const Modal = () => {
         errors,
         handleChange,
         handleBlur,
+        handleSubmit,
     } = formik;
+
 
     return (
         <ModalWrapper>
             <HeaderText>Заявка на підключення</HeaderText>
             <Description>Залиши свої данні та ми зателефонуємо, щоб узгодити час та дату підключення.</Description>
-            <ContactForm>
+            <ContactForm onSubmit={handleSubmit}>
                 <ContactFormTitle>Ваша адреса</ContactFormTitle>
-                <InputSmallWrapper>
-                    <SelectSmall
+                <Row>
+                    <Select
                         name="region"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.region}
+
                     >
-                        <option value={null} selected>Область</option>
+                        <option value={''}>Область</option>
                         <option>Киевская</option>
                         <option>Львовская</option>
                         <option>Харьковская</option>
-                    </SelectSmall>
+                    </Select>
                     {touched.region && errors.region ? (
                         <Error1>{errors.region}</Error1>
                     ) : null}
-                    <SelectSmall
+                    <Select
                         name="city"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.city}
+
                     >
-                        <option value={null} selected>Мiсто</option>
+                        <option value={''}>Мiсто</option>
                         <option>Киев</option>
                         <option>Львов</option>
                         <option>Харьков</option>
-                    </SelectSmall>
+                    </Select>
                     {touched.city && errors.city ? <Error2>{errors.city}</Error2> : null}
-                </InputSmallWrapper>
-                <InputSmallWrapper>
-                    <SelectSmall
+                </Row>
+                <Row>
+                    <Select
                         type="text"
                         name="street"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.street}
+
                     >
-                        <option value={null} selected>Вулиця</option>
+                        <option value={''}>Вулиця</option>
                         <option>Носа</option>
                         <option>Кита</option>
                         <option>Бандери</option>
-                    </SelectSmall>
+                    </Select>
                     {touched.street && errors.street ? <Error1>{errors.street}</Error1> : null}
-                    <InputSmall
+                    <Input
                         type="text"
                         name="house"
                         placeholder="Будинок"
@@ -98,11 +119,11 @@ const Modal = () => {
                         onBlur={handleBlur}
                         value={values.house}
                     >
-                    </InputSmall>
+                    </Input>
                     {touched.house && errors.house ? <Error2>{errors.house}</Error2> : null}
-                </InputSmallWrapper>
+                </Row>
                 <ContactFormTitle>Вашi контакти</ContactFormTitle>
-                <InputPIB
+                <Input
                     type="text"
                     placeholder="ПІБ"
                     name="name"
@@ -110,11 +131,10 @@ const Modal = () => {
                     onBlur={handleBlur}
                     value={values.name}
                 >
-
-                </InputPIB>
+                </Input>
                 {touched.name && errors.name ? <Error3>{errors.name}</Error3> : null}
-                <InputSmallWrapper>
-                    <InputSmall
+                <Row>
+                    <Input
                         type="text"
                         placeholder="e-mail"
                         name="email"
@@ -123,7 +143,7 @@ const Modal = () => {
                         value={values.email}
                     />
                     {touched.email && errors.email ? <Error1>{errors.email}</Error1> : null}
-                    <InputSmall
+                    <Input
                         type="tel"
                         placeholder="+38(099)..."
                         name="phone"
@@ -132,8 +152,10 @@ const Modal = () => {
                         value={values.phone}
                     />
                     {touched.phone && errors.phone ? <Error2>{errors.phone}</Error2> : null}
-                </InputSmallWrapper>
-                <InputNote
+                </Row>
+                <TextArea
+                    rows="3"
+                    cols="3"
                     type="text"
                     placeholder="Примiтки"
                     name="notes"
@@ -141,6 +163,9 @@ const Modal = () => {
                     onBlur={handleBlur}
                     value={values.notes}
                 />
+                <ButtonContainer centered={props.buttonCentered}>
+                    <Button type="submit" text="Підключитися"/>
+                </ButtonContainer>
             </ContactForm>
         </ModalWrapper>
     )
@@ -149,17 +174,25 @@ const Modal = () => {
 const ModalWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 847px;
-  position: relative
+  max-width: 847px;
+  position: relative;
 
-`
+  @media (max-width: 768px) {
+    align-items: center;
+  }
+`;
 
 const HeaderText = styled.div`
   text-align: center;
   vertical-align: top;
   font-size: 50px;
   color: #0d316d;
-`
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
+`;
+
 const Description = styled.div`
   font-size: 30px;
   line-height: 35px;
@@ -167,7 +200,13 @@ const Description = styled.div`
   text-align: center;
   margin-top: 30px;
 
-`
+  @media (max-width: 768px) {
+    font-size: 24px;
+    line-height: 28px;
+    margin-top: 20px;
+  }
+`;
+
 const ContactFormTitle = styled.div`
   margin-bottom: 30px;
   margin-top: 70px;
@@ -176,28 +215,35 @@ const ContactFormTitle = styled.div`
   text-align: left;
   color: #0D316D;
 
-`
-const ContactForm = styled.div`
-  height: 649px;
-  width: 847px;
+  @media (max-width: 768px) {
+    margin-top: 40px;
+  }
+`;
 
-`
+const ContactForm = styled.form`
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 20px;
 
-const InputPIB = styled.input`
-  width: 845px;
-  border-radius: 10px;
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+`;
 
-`
-
-const InputSmallWrapper = styled.div`
+const Row = styled.div`
   display: flex;
   margin-top: 25px;
-  justify-content: space-between;
+  flex-flow: row wrap;
+  gap: 25px;
 
-`
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+`;
 
-const SelectSmall = styled.select`
-  width: 412px;
+const Select = styled.select`
+  flex: 1;
   height: 50px;
   border: 1px solid #0D316D;
   border-radius: 10px;
@@ -205,44 +251,54 @@ const SelectSmall = styled.select`
   line-height: 23px;
   color: #0D316D;
   padding: 10px;
-`
-
-const InputSmall = styled.input`
-  width: 412px;
-`
-
-
-const InputNote = styled.textarea`
-  width: 845px;
-  height: 130px;
-  margin-top: 25px;
-  padding: 15px;
-
-  &::placeholder {
-    position: absolute;
-    top: 10%;
-    left: 2%;
-    font-family: 'Raleway', sans-serif;
-    font-size: 20px;
-    line-height: 23px;
+  min-width: 200px;
+  @media only screen and (min-width: 768px) {
+    min-width: 390px;
   }
 `
 
-const Error1 = styled.div`
+const Input = styled.input`
+  flex: 1;
+  padding: 10px;
+  min-width: 200px;
+  @media only screen and (min-width: 768px) {
+    min-width: 390px;
+  }
+`
 
+const TextArea = styled.textarea`
+  flex: 1;
+  margin-top: 25px;
+  padding: 15px;
+  resize: none;
+  min-width: 200px;
+  @media only screen and (min-width: 768px) {
+    min-width: 390px;
+  }
+`
+
+const ButtonContainer = styled.div`
+  margin-top: 30px;
+  display: flex;
+  justify-content: ${props => props.centered ? "center" : "flex-start"};
+`;
+
+
+const Error1 = styled.div`       //TODO adaptive styles to Errors
   position: absolute;
-  margin-left: 15px;
+  margin-left: 1%;
   margin-top: 50px;
   color: red;
 `
 
 const Error2 = styled(Error1)`
-  margin-left: 447px;
+  margin-left: 50%;
 `
 
-const Error3 = styled(Error1)`
-  margin-top: 0;
+const Error3 = styled.div`
+  margin-left: 1%;
+  color: red;
 `
 
 
-export default Modal;
+export default ConnectForm;

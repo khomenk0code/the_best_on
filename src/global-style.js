@@ -24,6 +24,7 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
+
   body {
     font-family: 'Raleway', sans-serif;
     margin: 0;
