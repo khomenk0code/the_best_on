@@ -8,24 +8,23 @@ import Tariffs from "./tariff.component";
 import AdBlock from "./tgbot-ad.component"
 import Offers from "./promo-offers.component";
 import Footer from "../../components/footer/footer";
-import Modal from "../../components/modal/modal"
 import ModalContext from "../../components/modal/modal-context";
+
 
 
 export const MainPage = () => {
 
-    const {showModal, setShowModal, handleOpenModal} = useContext(ModalContext);
+    const {handleOpenModal} = useContext(ModalContext);
 
     return (
         <>
             <Header handleOpenModal={handleOpenModal}/>
-            <MainSlider title="Slider" setShowModal={setShowModal}/>
+            <MainSlider title="Slider"/>
             <SliderFooter/>
             <Tariffs/>
             <AdBlock/>
             <Offers/>
             <Footer/>
-            <Modal showModal={showModal} handleModalClose={() => setShowModal(false)}/>
         </>
     )
 }

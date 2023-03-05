@@ -1,10 +1,13 @@
 import cross from "../../assets/images/cross.png";
 import ConnectForm from "../forms/connect-form";
-import React, {useEffect} from "react";
+import React, {useContext, useEffect} from "react";
 import styled, {keyframes} from "styled-components";
 import ReactDOM from "react-dom";
+import ModalContext from "./modal-context";
 
-const Modal = ({showModal, handleModalClose}) => {
+const Modal = () => {
+
+    const {showModal, handleCloseModal} = useContext(ModalContext)
 
     const ModalPortal = ({children}) => {
         const modalRoot = document.getElementById("modal-root");
@@ -20,8 +23,9 @@ const Modal = ({showModal, handleModalClose}) => {
 
     const handleWrapperClick = (e) => {
         e.stopPropagation();
-        handleModalClose();
+        handleCloseModal();
     }
+
 
 
     return (
@@ -30,7 +34,7 @@ const Modal = ({showModal, handleModalClose}) => {
                 <ModalPortal>
                     <MainModalWrapper onClick={handleWrapperClick}>
                         <BgWrapper onClick={(e) => e.stopPropagation()}>
-                            <Cross src={cross} onClick={handleModalClose}/>
+                            <Cross src={cross} onClick={handleCloseModal}/>
                             <ConnectForm buttonCentered/>
                         </BgWrapper>
                     </MainModalWrapper>

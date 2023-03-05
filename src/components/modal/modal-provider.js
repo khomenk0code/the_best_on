@@ -8,8 +8,12 @@ const ModalProvider = ({children}) => {
         setShowModal(true);
     };
 
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
+
     return (
-        <ModalContext.Provider value={{showModal, setShowModal, handleOpenModal}}>
+        <ModalContext.Provider value={{showModal, handleCloseModal, handleOpenModal}}>
             {children}
         </ModalContext.Provider>
     );

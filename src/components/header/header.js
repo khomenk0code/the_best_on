@@ -2,23 +2,31 @@ import styled from 'styled-components'
 import logo from "../../assets/images/logo.svg";
 import mobileLogo from "../../assets/images/logo-mobile.png"
 import {Button, BUTTON_TYPES} from "../buttons/button";
-import {useState} from 'react';
+import {useContext, useState} from 'react';
+import BurgerMenu from "../header/header-burger"
+import ModalContext from "../modal/modal-context";
 
 
-const Header = ({handleOpenModal}) => {
-    const [isOpen, setIsOpen] = useState(false);
+const Header = () => {
+    const {handleOpenModal} = useContext(ModalContext);
+    const [isBurgerMenuShown, setIsBurgerMenuShown] = useState(false)
+
 
     const toggleBurgerMenu = () => {
-        setIsOpen(!isOpen);
+        setIsBurgerMenuShown(!isBurgerMenuShown);
     }
 
     return (
+
         <Wrapper>
+
+            <BurgerMenu toggleBurgerMenu={toggleBurgerMenu} isBurgerMenuShown={isBurgerMenuShown}>
+            </BurgerMenu>
+
             <HeaderContainer>
-                {/*<Burger*/}
                 <a href="/"><Logo src={logo} alt="The Best-On"/></a>
                 <MobileLogo src={mobileLogo} alt="The Best-On"/>
-                <LinksWrapper isOpen={isOpen}>
+                <LinksWrapper>
                     <Link href="/">Головна</Link>
                     <Link>Тарифи</Link>
                     <Link>Послуги</Link>
@@ -26,7 +34,7 @@ const Header = ({handleOpenModal}) => {
                     <Link href="/contacts">Контакти</Link>
                 </LinksWrapper>
                 <HeaderButton onClick={handleOpenModal} text="Підключитися" type={BUTTON_TYPES.primaryOutline}/>
-                <BurgerMenuButton onClick={toggleBurgerMenu} isOpen={isOpen}>
+                <BurgerMenuButton onClick={toggleBurgerMenu}>
                     <span></span>
                     <span></span>
                     <span></span>
@@ -41,16 +49,16 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-
+  position: relative;
 
   @media (max-width: 1366px) {
-    padding: 0 30px;
+    padding-bottom: 20px;
+    padding-top: 10px;
   }
 `;
 
 const HeaderContainer = styled.div`
   position: relative;
-  height: 87px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,14 +67,14 @@ const HeaderContainer = styled.div`
 
 
   @media (max-width: 1366px) {
-    min-width: auto;
-    justify-content: space-between;
-    margin-bottom: 50px;
+    min-width: 320px;
+    margin: 0;
+
   }
 
   @media (max-width: 768px) {
     height: auto;
-    margin: 8px 20px;
+    margin: 0;
   }
 `;
 
@@ -75,7 +83,7 @@ const LinksWrapper = styled.div`
   flex-direction: row;
   align-items: flex-start;
   gap: 28px;
-  height: 23px;
+
 
   @media (max-width: 1366px) {
     width: auto;
@@ -91,9 +99,8 @@ const LinksWrapper = styled.div`
     right: 0;
     background-color: #fff;
     border: 1px solid #ccc;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    padding: 20px 30px;
     opacity: ${({isOpen}) => isOpen ? 1 : 0};
     visibility: ${({isOpen}) => isOpen ? 'visible' : 'hidden'};
     transition: all 0.3s ease-in-out;
@@ -134,21 +141,16 @@ const Link = styled.a`
   cursor: pointer;
 
 
-  @media (max-width: 1366px) {
-    margin-right: 10px;
-  }
-
-  @media (max-width: 768px) {
-    margin-right: 0;
-  }
 `;
 
 const Logo = styled.img`
   width: 276px;
   height: 59px;
 
+
   @media (max-width: 768px) {
     display: none;
+
   }
 `;
 
@@ -179,6 +181,7 @@ const BurgerMenuButton = styled.button`
   cursor: pointer;
   margin-left: auto;
 
+
   @media (min-width: 769px) {
     display: none;
   }
@@ -188,7 +191,7 @@ const BurgerMenuButton = styled.button`
     left: 0;
     width: 100%;
     height: 3px;
-    border-radius: 79.5625px;
+    border-radius: 79px;
     background-color: ${({isOpen}) => isOpen ? 'transparent' : '#0D316D'};
     transition: all 0.3s ease-in-out;
 

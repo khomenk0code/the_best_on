@@ -72,6 +72,7 @@ const MainSliderWrapper = styled.div`
   margin: 0 auto;
   padding: 0 15px;
 
+
   @media screen and (max-width: 768px) {
     padding-left: 0;
     padding-right: 0;

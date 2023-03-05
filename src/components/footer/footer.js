@@ -102,7 +102,7 @@ const MenuWrapper = styled.div`
   @media screen and (max-width: 768px) {
     margin-right: 0;
     margin-bottom: 30px;
-    height: auto; /* изменено на auto */
+    height: auto;
   }
 `;
 

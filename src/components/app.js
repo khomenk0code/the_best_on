@@ -5,6 +5,7 @@ import {GlobalStyle} from "../global-style";
 import {TarrifDomashnii} from "../pages/tariffs/tarrif.domashnii";
 import Contacts from "../pages/contacts/contacts";
 import ModalProvider from "./modal/modal-provider";
+import Modal from "./modal/modal";
 
 const App = () => {
     return (
@@ -15,6 +16,7 @@ const App = () => {
                 <Route path="/contacts" element={<Contacts/>}/>
                 <Route path="/tariffs/domashnii" element={<TarrifDomashnii/>}/>
             </Routes>
+            <Modal/>
         </ModalProvider>
     );
 
