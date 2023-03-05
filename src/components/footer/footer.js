@@ -18,7 +18,7 @@ const Footer = () => {
             <MenuWrapper>
                 <MenuTitle>Тарифы</MenuTitle>
                 <MenuLi>Базовий</MenuLi>
-                <MenuLi>Домашній</MenuLi>
+                <a href="/tariffs/domashnii"><MenuLi>Домашній</MenuLi></a>
                 <MenuLi>Для бізнесa</MenuLi>
                 <MenuLi>Безліміт</MenuLi>
             </MenuWrapper>
