@@ -3,17 +3,16 @@ import Header from "../../components/header/header"
 import Footer from "../../components/footer/footer";
 import styled from "styled-components";
 import ConnectForm from "../../components/forms/connect-form";
-
+import TariffCardBig from "../../components/cards/tariff-card-big"
 
 
 export const TarrifDomashnii = () => {
 
 
-
     return (
         <div>
             <Header/>
-            <Tariff>Домашний</Tariff>
+            <TariffCardBig/>
             <ConnectWrapper>
                 <ConnectForm/>
             </ConnectWrapper>
@@ -22,12 +21,6 @@ export const TarrifDomashnii = () => {
     )
 }
 
-const Tariff = styled.div`
-  height: 435px;
-  border: 5px solid black;
-  display: flex;
-  justify-content: center;
-`;
 
 const ConnectWrapper = styled.div`
   display: flex;

@@ -28,25 +28,29 @@
       "id": 1,
       "name": "Базовий",
       "value": 150,
-      "maxmb": 100
+      "maxmb": 100,
+      "link": "/tariffs/domashnii"
     },
     {
       "id": 2,
       "name": "Домашній",
       "value": 170,
-      "maxmb": 300
+      "maxmb": 300,
+      "link": "/tariffs/domashnii"
     },
     {
       "id": 3,
       "name": "Для бізнеса",
       "value": 200,
-      "maxmb": 1000
+      "maxmb": 1000,
+      "link": "/tariffs/domashnii"
     },
     {
       "id": 4,
       "name": "Безліміт",
       "value": 250,
-      "maxmb": 1000
+      "maxmb": 1000,
+      "link": "/tariffs/domashnii"
     }
   ],
   "slides": [

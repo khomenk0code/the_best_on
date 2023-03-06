@@ -102,6 +102,7 @@ const SlideTitle = styled.h2`
   font-weight: 400;
   font-size: 65px;
   color: #FFFFFF;
+  margin-bottom: 47px;
 
   @media screen and (max-width: 768px) {
     margin-top: 50px;

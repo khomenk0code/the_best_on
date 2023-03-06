@@ -3,6 +3,7 @@ import RalewayRegular from './assets/fonts/Inter-Regular.ttf';
 import InterRegular from './assets/fonts/Inter-Regular.ttf';
 import NunitoSans from './assets/fonts/NunitoSans-Regular.ttf';
 
+
 export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Raleway';
@@ -43,6 +44,7 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 28px;
   }
 
+
   textarea {
     border: 1px solid #0D316D;
     border-radius: 10px;
@@ -61,5 +63,35 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     text-decoration: none;
   }
+
+  h1,
+  h2,
+  input,
+  button,
+  textarea,
+  div,
+  select {
+    font: inherit;
+  }
+
+  /* Убираем внешние отступы */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  ul[class],
+  ol[class],
+  li,
+  figure,
+  figcaption,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+
 
 `;
