@@ -2,7 +2,7 @@ import {createGlobalStyle} from 'styled-components';
 import RalewayRegular from './assets/fonts/Inter-Regular.ttf';
 import InterRegular from './assets/fonts/Inter-Regular.ttf';
 import NunitoSans from './assets/fonts/NunitoSans-Regular.ttf';
-
+import li from './assets/images/li-style.png'
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: normal;
     font-style: normal;
   }
+
   @font-face {
     font-family: 'NunitoSans';
     src: url(${NunitoSans}) format('truetype');
@@ -42,6 +43,13 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-size: 24px;
     line-height: 28px;
+  }
+
+  li {
+
+    list-style: url(${li}) outside;
+
+
   }
 
 

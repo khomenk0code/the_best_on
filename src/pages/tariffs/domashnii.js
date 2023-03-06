@@ -6,13 +6,13 @@ import ConnectForm from "../../components/forms/connect-form";
 import TariffCardBig from "../../components/cards/tariff-card-big"
 
 
-export const TarrifDomashnii = () => {
+export const Domashnii = () => {
 
 
     return (
         <div>
             <Header/>
-            <TariffCardBig/>
+            <TariffCardBig tariffId={2}/>
             <ConnectWrapper>
                 <ConnectForm/>
             </ConnectWrapper>

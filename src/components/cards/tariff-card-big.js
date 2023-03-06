@@ -5,13 +5,14 @@ import {useHttp} from "../../hooks/http.hook";
 import {useEffect} from "react";
 
 
-const TariffCardBig = () => {
+const TariffCardBig = ({tariffId}) => {
     const {request} = useHttp();
     const [tariffs, setTariffs] = useState([])
 
+    console.log(tariffId)
 
     useEffect(() => {
-        request("http://localhost:3001/tariffs/2")
+        request(`http://localhost:3001/tariffs/${tariffId}`)
             .then(data => setTariffs(data))
             .catch(() => console.log('err'))
 
@@ -70,7 +71,6 @@ const TariffLi = styled.li`
   font-size: 30px;
   line-height: 35px;
   color: #0D316D;
-  
 
 
 `;
