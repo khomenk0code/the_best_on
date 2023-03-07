@@ -46,8 +46,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   li {
-    list-style: url(${li}) outside;
-    font: inherit;
+    padding-left: 19px;
+    background: url(${li}) no-repeat left center;
+    list-style: none;
+
   }
 
 
