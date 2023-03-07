@@ -46,10 +46,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   li {
-
     list-style: url(${li}) outside;
-
-
+    font: inherit;
   }
 
 

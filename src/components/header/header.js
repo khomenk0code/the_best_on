@@ -57,7 +57,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.nav`
   position: relative;
   display: flex;
   justify-content: space-between;

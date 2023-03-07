@@ -14,7 +14,7 @@ const COLORS = {
 
 const BUTTON_THEMES = {
     [BUTTON_TYPES.primary]: {
-        color: COLORS.secondary,
+        color: COLORS.white,
         background: COLORS.primary,
         border: `1px solid ${COLORS.primary}`,
 

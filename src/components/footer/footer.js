@@ -86,14 +86,14 @@ const LogoWrapper = styled.div`
 `;
 
 const LogoText = styled.div`
-  font-style: inherit;
+  margin-top: 50px;
   font-size: 14px;
   line-height: 16px;
   color: #FFFFFF;
 `;
 
 
-const MenuWrapper = styled.div`
+const MenuWrapper = styled.nav`
   display: flex;
   flex-direction: column;
   height: 186px;
@@ -116,12 +116,12 @@ const MenuTitle = styled.div`
 
 const MenuLi = styled.li`
   white-space: nowrap;
-  list-style-type: none;
   height: 23px;
   font-weight: 100;
   font-size: 20px;
   line-height: 23px;
   color: #FFFFFF;
+  list-style: none;
 
   &:hover {
     cursor: pointer;
@@ -136,7 +136,7 @@ const ButtonsWrapper = styled.div`
   height: 176px;
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    justify-content: space-around; /* изменено на space-around */
+    justify-content: space-around;
   }
 `;
 

@@ -41,15 +41,19 @@ const Offers = () => {
                 {loadedCards &&
                     <OfferCardList loadedCards={loadedCards} setLoadedCards={setLoadedCards} title="Tariffs"/>}
             </CardsWrapper>
-            <Button
+            <StyledButton
                 disabled={disableLoadMoreButton}
                 onClick={handleLoadMore}
                 text="Всі пропозиції"
-                type={BUTTON_TYPES.primaryOutline}
+                type={BUTTON_TYPES.primary}
             />
         </OffersWrapper>
     )
 }
+
+const StyledButton = styled(Button)`
+  width: fit-content;
+`
 
 const OffersWrapper = styled.div`
   flex-direction: column;
