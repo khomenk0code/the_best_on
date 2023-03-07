@@ -2,7 +2,7 @@ import {createGlobalStyle} from 'styled-components';
 import RalewayRegular from './assets/fonts/Inter-Regular.ttf';
 import InterRegular from './assets/fonts/Inter-Regular.ttf';
 import NunitoSans from './assets/fonts/NunitoSans-Regular.ttf';
-import li from './assets/images/li-style.png'
+
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -46,8 +46,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   li {
-    padding-left: 19px;
-    background: url(${li}) no-repeat left center;
+
     list-style: none;
 
   }

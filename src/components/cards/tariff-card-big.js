@@ -3,6 +3,7 @@ import styled from "styled-components";
 import logo from "../../assets/images/tetki.png"
 import {useHttp} from "../../hooks/http.hook";
 import {useEffect} from "react";
+import li from '../../assets/images/li-style.png'
 
 
 const TariffCardBig = ({tariffId}) => {
@@ -71,7 +72,8 @@ const TariffLi = styled.li`
   font-size: 30px;
   line-height: 35px;
   color: #0D316D;
-
+  background: url(${li}) no-repeat left center;
+  padding-left: 19px;
 
 `;
 

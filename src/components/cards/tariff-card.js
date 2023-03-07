@@ -26,7 +26,7 @@ export default function TariffCard() {
                         <TariffName>{tariffs.name}</TariffName>
                         <TariffPriceValue>{tariffs.value}</TariffPriceValue>
                         <TariffBottomText>грн/міс</TariffBottomText>
-                        <TariffTextPrefix>до<TariffMaxPrice></TariffMaxPrice></TariffTextPrefix>
+                        <TariffTextPrefix>до<TariffMaxPrice>{tariffs.maxmb}</TariffMaxPrice></TariffTextPrefix>
                         <TariffBottomText>мбіт/с</TariffBottomText>
                         <a href={tariffs.link}> <Button text="Підключитися" type={BUTTON_TYPES.primaryOutline}/></a>
                     </TariffCardWrapper>

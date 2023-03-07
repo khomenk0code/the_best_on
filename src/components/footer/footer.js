@@ -123,6 +123,7 @@ const MenuLi = styled.li`
   color: #FFFFFF;
   list-style: none;
 
+
   &:hover {
     cursor: pointer;
   }
