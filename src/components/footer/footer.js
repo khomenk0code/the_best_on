@@ -17,16 +17,16 @@ const Footer = () => {
             </LogoWrapper>
             <MenuWrapper>
                 <MenuTitle>Тарифы</MenuTitle>
-                <MenuLi>Базовий</MenuLi>
+                <a href="/tariffs/bazovii"><MenuLi>Базовий</MenuLi></a>
                 <a href="/tariffs/domashnii"><MenuLi>Домашній</MenuLi></a>
-                <MenuLi>Для бізнесa</MenuLi>
-                <MenuLi>Безліміт</MenuLi>
+                <a href="/tariffs/dlya-biznesa"> <MenuLi>Для бізнесa</MenuLi></a>
+                <a href="/tariffs/bezlim"> <MenuLi>Безліміт</MenuLi></a>
             </MenuWrapper>
             <MenuWrapper>
                 <MenuTitle>Меню</MenuTitle>
-                <MenuLi>Послуги</MenuLi>
-                <MenuLi>Оплата</MenuLi>
-                <MenuLi>Контакти</MenuLi>
+                <a href="/services"> <MenuLi>Послуги</MenuLi></a>
+                <a href="/payment"> <MenuLi>Оплата</MenuLi></a>
+                <a href="/contacts"> <MenuLi>Контакти</MenuLi></a>
                 <MenuLi>Вигідні пропозиції</MenuLi>
             </MenuWrapper>
             <ButtonsWrapper>
@@ -63,7 +63,7 @@ const FooterWrapper = styled.div`
     flex-direction: column;
     height: auto;
     padding-bottom: 30px;
-    justify-content: center; /* добавлено */
+    justify-content: center;
   }
 `;
 

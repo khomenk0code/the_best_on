@@ -9,6 +9,9 @@ import Modal from "./modal/modal";
 import {Bazovii} from "../pages/tariffs/bazovii";
 import {DlyaBiznesa} from "../pages/tariffs/dlya-biznesa";
 import {Bezlim} from "../pages/tariffs/bezlim";
+import {TariffsPage} from "../pages/tariffs/tariffs.main";
+import {Payment} from "../pages/payment/payment";
+import {Services} from "../pages/services/services";
 
 const App = () => {
     return (
@@ -17,6 +20,9 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<MainPage/>}/>
                 <Route path="/contacts" element={<Contacts/>}/>
+                <Route path="/tariffs" element={<TariffsPage/>}/>
+                <Route path="/payment" element={<Payment/>}/>
+                <Route path="/services" element={<Services/>}/>
                 <Route path="/tariffs/domashnii" element={<Domashnii/>}/>
                 <Route path="/tariffs/bazovii" element={<Bazovii/>}/>
                 <Route path="/tariffs/dlya-biznesa" element={<DlyaBiznesa/>}/>

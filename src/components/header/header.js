@@ -5,6 +5,7 @@ import {Button, BUTTON_TYPES} from "../buttons/button";
 import {useContext, useState} from 'react';
 import BurgerMenu from "../header/header-burger"
 import ModalContext from "../modal/modal-context";
+import {NavLink} from 'react-router-dom';
 
 
 const Header = () => {
@@ -15,6 +16,7 @@ const Header = () => {
     const toggleBurgerMenu = () => {
         setIsBurgerMenuShown(!isBurgerMenuShown);
     }
+
 
     return (
 
@@ -27,11 +29,14 @@ const Header = () => {
                 <a href="/"><Logo src={logo} alt="The Best-On"/></a>
                 <MobileLogo src={mobileLogo} alt="The Best-On"/>
                 <LinksWrapper>
-                    <Link href="/">Головна</Link>
-                    <Link>Тарифи</Link>
-                    <Link>Послуги</Link>
-                    <Link>Оплата</Link>
-                    <Link href="/contacts">Контакти</Link>
+                    <Link exact={true.toString()} to="/"
+                    >
+                        Головна
+                    </Link>
+                    <Link to="/tariffs">Тарифи</Link>
+                    <Link to="/services">Послуги</Link>
+                    <Link to="/payment">Оплата</Link>
+                    <Link to="/contacts">Контакти</Link>
                 </LinksWrapper>
                 <HeaderButton onClick={handleOpenModal} text="Підключитися" type={BUTTON_TYPES.primaryOutline}/>
                 <BurgerMenuButton onClick={toggleBurgerMenu}>
@@ -130,8 +135,8 @@ const LinksWrapper = styled.div`
       }
     }
 `;
-
-const Link = styled.a`
+const activeClassName = 'active';
+const Link = styled(NavLink)`
   text-decoration: none;
   font-size: 18px;
   line-height: 23px;
@@ -140,7 +145,9 @@ const Link = styled.a`
   color: #0D316D;
   cursor: pointer;
 
-
+  &.${activeClassName} {
+    text-decoration: underline;
+  }
 `;
 
 const Logo = styled.img`
@@ -150,7 +157,6 @@ const Logo = styled.img`
 
   @media (max-width: 768px) {
     display: none;
-
   }
 `;
 

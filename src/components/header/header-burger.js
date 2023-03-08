@@ -2,6 +2,7 @@ import burgerLogo from "../../assets/images/logo-burger.png";
 import cross from "../../assets/images/cross-burger.png";
 import styled from "styled-components";
 import React from "react";
+import {NavLink} from 'react-router-dom';
 
 const BurgerMenu = ({isBurgerMenuShown, toggleBurgerMenu}) => {
 
@@ -17,11 +18,11 @@ const BurgerMenu = ({isBurgerMenuShown, toggleBurgerMenu}) => {
                 </CrossWrapper>
             </LogoWrapper>
             <MenuWrapper>
-                <Link href="/">Головна</Link>
-                <Link>Тарифи</Link>
-                <Link>Послуги</Link>
-                <Link>Оплата</Link>
-                <Link href="/contacts">Контакти</Link>
+                <Link exact={true.toString()} to="/">Головна</Link>
+                <Link to="/tariffs">Тарифи</Link>
+                <Link to="/services">Послуги</Link>
+                <Link to="/payment">Оплата</Link>
+                <Link to="/contacts">Контакти</Link>
             </MenuWrapper>
         </Wrapper>
     );
@@ -84,7 +85,9 @@ const MenuWrapper = styled.div`
   justify-items: center;
 `;
 
-const Link = styled.a`
+const activeClassName = 'active';
+
+const Link = styled(NavLink)`
   white-space: nowrap;
   list-style-type: none;
   height: 23px;
@@ -95,8 +98,14 @@ const Link = styled.a`
   font-family: 'Raleway', sans-serif;
   margin-bottom: 30px;
 
+  &.${activeClassName} {
+    text-decoration: underline;
+    padding-bottom: 2px;
+  }
+
   &:hover {
     cursor: pointer;
+    padding-bottom: 2px;
   }
 `
 
