@@ -10,10 +10,12 @@ import styled from "styled-components";
 import lifecell from "../../assets/images/lifecell.png";
 import vodafone from "../../assets/images/vodafone.png";
 import kyivstar from "../../assets/images/kyivstar.png";
-
+import li from '../../assets/images/li-style.png'
+import {GoogleMap, LoadScript} from '@react-google-maps/api';
 
 const validationSchema = Yup.object().shape({
     name: Yup.string().required("Введіть ПІБ"),
+    question: Yup.string().required("Оберіть тип питання"),
     phone: Yup.string()
         .matches(/^\+38\(0\d{2}\)\d{3}-\d{2}-\d{2}$/, "Невірний формат телефону")
         .required("Введіть номер телефону"),
@@ -29,6 +31,7 @@ const Contacts = () => {
             name: "",
             phone: "",
             notes: "",
+            question: "",
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
@@ -56,6 +59,17 @@ const Contacts = () => {
         handleSubmit,
     } = formik;
 
+    const containerStyle = {
+        width: '630px',
+        height: '475px',
+        borderRadius: '30px',
+        overflow: 'hidden',
+    };
+
+    const center = {
+        lat: 50.442437482784214,
+        lng: 30.548129775657348,
+    };
 
     return (
         <div>
@@ -63,7 +77,6 @@ const Contacts = () => {
             <MainWrapper>
                 <Title>Контакти</Title>
                 <TopWrapper>
-
                     <FeedbackWrapper onSubmit={handleSubmit}>
                         <ContactFormTitle>Зворотнiй зв’язок</ContactFormTitle>
                         <Input
@@ -75,7 +88,7 @@ const Contacts = () => {
                             value={values.name}
                         >
                         </Input>
-                        {touched.name && errors.name ? <Error3>{errors.name}</Error3> : null}
+                        {touched.name && errors.name ? <Error1>{errors.name}</Error1> : null}
                         <Row>
                             <Input
                                 type="tel"
@@ -85,16 +98,27 @@ const Contacts = () => {
                                 onBlur={handleBlur}
                                 value={values.phone}
                             />
-                            {touched.phone && errors.phone ? <Error2>{errors.phone}</Error2> : null}
+
                             <Select
-                                placeholder="question"
                                 name="question"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.question}
-                            />
-                            {touched.question && errors.question ? <Error1>{errors.email}</Error1> : null}
+                            >
+                                <option value={''}>Тип питання</option>
+                                <option>Перерахунок</option>
+                                <option>Втрачений платiж</option>
+                                <option>Змiна тарифу</option>
+                                <option>Замовити видiлений IP</option>
+                                <option>Вимкнути видiлений IP</option>
+                                <option>Пропозиції</option>
+                                <option>Скарги</option>
+                            </Select>
                         </Row>
+                        <ErrorsWrapper>
+                            {touched.phone && errors.phone ? <Error2>{errors.phone}</Error2> : null}
+                            {touched.question && errors.question ? <Error3>{errors.question}</Error3> : null}
+                        </ErrorsWrapper>
                         <TextArea
                             rows="3"
                             cols="3"
@@ -116,22 +140,41 @@ const Contacts = () => {
                         <Email>E-mail:</Email>
                         <EmailText>office@thebest-on.com</EmailText>
                     </ContactsWrapper>
-
                 </TopWrapper>
-                {/*<BottomWrapper>*/}
-                {/*    <Chart>*/}
+                <BottomWrapper>
+                    <ScheduleMainWrapper>
+                        <ContactFormTitle>Зворотнiй зв’язок</ContactFormTitle>
+                        <ScheduleWrapper>
+                            <ScheduleTitle>Кол центр: 8:00 - 20:00</ScheduleTitle>
+                            <ScheduleText>щодня, <br/>без вихiдних</ScheduleText>
+                            <ScheduleTitle>Сервiсний центр: 9:00 - 18:00</ScheduleTitle>
+                            <ScheduleText>пн-сб, вихiдний нд</ScheduleText>
+                            <ScheduleTitle>Монтажники: 8:00 - 20:00</ScheduleTitle>
+                            <ScheduleText>пн-сб, вихiдний нд</ScheduleText>
+                            <Address>Адреса:</Address>
+                            <AddressText>Київ, вул. Городоцька</AddressText>
+                        </ScheduleWrapper>
+                    </ScheduleMainWrapper>
 
-                {/*    </Chart>*/}
-                {/*    <GoogleMap>*/}
+                    <LoadScript
+                        googleMapsApiKey="AIzaSyAuMqkV_zvYjK7IiQMG4uRZwZOUqi-VMDY"
+                    >
+                        <GoogleMap
+                            mapContainerStyle={containerStyle}
+                            center={center}
+                            zoom={10}
+                        >
+                        </GoogleMap>
+                    </LoadScript>
 
-                {/*    </GoogleMap>*/}
-                {/*</BottomWrapper>*/}
+                </BottomWrapper>
             </MainWrapper>
-
             <Footer/>
         </div>
     )
 }
+
+//Wrappers
 
 const MainWrapper = styled.div`
   position: relative;
@@ -148,8 +191,7 @@ const TopWrapper = styled.div`
 `;
 
 const FeedbackWrapper = styled.form`
-  width: 623px;
-  width: 623px;
+
   display: flex;
   flex-flow: column nowrap;
   padding: 20px;
@@ -163,6 +205,61 @@ const ContactsWrapper = styled.div`
   color: #0D316D;
   font-family: 'Inter', sans-serif;
 `;
+
+const BottomWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 240px;
+`;
+
+const ScheduleMainWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: #0D316D;
+  justify-items: flex-start;
+`;
+
+const ScheduleWrapper = styled.div`
+  width: 443px;
+  height: 400px;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 20px;
+  justify-content: space-between;
+`;
+
+
+//Titles, text styles
+
+
+const ScheduleTitle = styled.li`
+  background: url(${li}) no-repeat left center;
+  padding-left: 19px;
+  height: 28px;
+  font-size: 24px;
+  line-height: 28px;
+`;
+const ScheduleText = styled.div`
+  width: 155px;
+  height: 46px;
+  font-size: 20px;
+  line-height: 23px;
+  display: flex;
+  flex-flow: column nowrap;
+  padding-left: 19px;
+
+`;
+
+
+const Address = styled.div`
+  font-size: 24px;
+  line-height: 28px;
+`
+const AddressText = styled.div`
+  font-size: 20px;
+  line-height: 23px;
+`
 
 const ContactFormTitle = styled.div`
   font-size: 30px;
@@ -184,17 +281,36 @@ const Title = styled.h1`
 `;
 
 
-// const GoogleMap = styled.div`
-//
-// `;
-//
-// const BottomWrapper = styled.div`
-//
-// `;
-// const Chart = styled.div`
-//
-// `;
+const PhoneLi = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
 
+`
+
+const Email = styled.div`
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+  line-height: 28px;
+  color: #0D316D;
+  margin-top: 25px;
+`
+
+const EmailText = styled.div`
+  font-size: 20px;
+  line-height: 23px;
+  margin-top: 11px;
+`
+
+const ContactsOperatorImg = styled.img`
+  height: 20px;
+  margin-right: 15px;
+`
+
+//Forms
 
 const Row = styled.div`
   max-width: 630px;
@@ -215,12 +331,11 @@ const Select = styled.select`
   color: #0D316D;
   padding: 10px;
 
-
 `
+
 
 const Input = styled.input`
   height: 50px;
-  flex: 1;
   padding: 10px;
 
 
@@ -235,60 +350,29 @@ const TextArea = styled.textarea`
   margin-bottom: 30px;
 
 `
+//Errors
+
+const ErrorsWrapper = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+
+`
 
 const Error1 = styled.div`       //TODO adaptive styles to Errors
-  position: absolute;
-  margin-left: 1%;
-  margin-top: 50px;
   color: red;
 `
 
 const Error2 = styled(Error1)`
-  margin-left: 50%;
+  display: flex;
+  flex-direction: row;
+  color: red;
+  flex-wrap: wrap;
 `
 
 const Error3 = styled.div`
-  margin-left: 1%;
+  margin-left: 15%;
   color: red;
 `
 
 
-const MenuTitle = styled.div`
-  margin-bottom: 20px;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 28px;
-
-`;
-
-
-const PhoneLi = styled.div`
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-
-`
-
-const ContactsOperatorImg = styled.img`
-  height: 20px;
-  margin-right: 15px;
-`
-
-const Email = styled.div`
-  font-family: 'Raleway', sans-serif;
-  font-size: 24px;
-  line-height: 28px;
-  color: #0D316D;
-  margin-top: 25px;
-`
-
-const EmailText = styled.div`
-  font-size: 20px;
-  line-height: 23px;
-  margin-top: 11px;
-`
-
-export default Contacts;
+export default React.memo(Contacts);
