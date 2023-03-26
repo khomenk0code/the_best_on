@@ -69,6 +69,7 @@ const HeaderContainer = styled.nav`
   align-items: center;
   min-width: 1300px;
   margin-bottom: 102px;
+  padding-top: 10px;
 
 
   @media (max-width: 1366px) {

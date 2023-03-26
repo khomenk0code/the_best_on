@@ -1,9 +1,8 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Header from "../../components/header/header"
 import Footer from "../../components/footer/footer";
 import {Button} from "../../components/buttons/button";
 import * as Yup from "yup";
-import {useHttp} from "../../hooks/http.hook";
 import {useFormik} from "formik";
 import {v4 as uuidv4} from "uuid";
 import styled from "styled-components";
@@ -12,6 +11,7 @@ import vodafone from "../../assets/images/vodafone.png";
 import kyivstar from "../../assets/images/kyivstar.png";
 import li from '../../assets/images/li-style.png'
 import {GoogleMap, LoadScript} from '@react-google-maps/api';
+import db from "../../api/db/data";
 
 const validationSchema = Yup.object().shape({
     name: Yup.string().required("Введіть ПІБ"),
@@ -24,7 +24,6 @@ const validationSchema = Yup.object().shape({
 
 const Contacts = () => {
 
-    const {request} = useHttp();
 
     const formik = useFormik({
         initialValues: {
@@ -39,12 +38,10 @@ const Contacts = () => {
                 id: uuidv4(),
                 ...values,
             };
-            console.log("newClient", newTicket);
 
+            db.data.clientdata.push(newTicket)
+            db.write()
 
-            request("http://localhost:3001/clientticket", "POST", JSON.stringify(newTicket))
-                .then(res => console.log(res, 'Отправка успешна'))
-                .catch(err => console.log(err));
 
             formik.resetForm();
         },

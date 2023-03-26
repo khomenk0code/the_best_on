@@ -1,13 +1,13 @@
 import React, {useCallback, useState, useEffect} from "react";
 import OfferCardList from "../../components/cards/offer-card";
 import styled from "styled-components";
-import {useHttp} from "../../hooks/http.hook";
 import {Button, BUTTON_TYPES} from "../../components/buttons/button";
+import db from "../../api/db/data";
 
 
 const Offers = () => {
 
-    const {request} = useHttp();
+
     const [loadedCards, setLoadedCards] = useState(4)
     const [totalCards, setTotalCards] = useState(0);
     const [disableLoadMoreButton, setDisableLoadMoreButton] = useState(false);
@@ -20,11 +20,13 @@ const Offers = () => {
         }
     }, [loadedCards, totalCards]);
 
+
     useEffect(() => {
-        request(`http://localhost:3001/offers`)
-            .then(data => setTotalCards(data.length))
-            .catch(() => console.log('err'))
-    }, [request])
+        const data = db.chain
+            .get('offers')
+            .value()
+        setTotalCards(data.length)
+    }, [])
 
     const handleLoadMore = useCallback(() => {
         setLoadedCards(prevCount => prevCount + 4);

@@ -1,21 +1,25 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 
-import {useHttp} from "../../hooks/http.hook";
+
 import {Button, BUTTON_TYPES} from "../buttons/button";
+import db from "../../api/db/data";
 
 
 function OfferCard({loadedCards}) {
 
-    const {request} = useHttp();
+
     const [offers, setOffers] = useState([])
 
-    useEffect(() => {
-        request(`http://localhost:3001/offers?_limit=${loadedCards}`)
-            .then(data => setOffers(data))
-            .catch(() => console.log('err'))
 
-    }, [loadedCards, request])
+    useEffect(() => {
+        const data = db.chain
+            .get("offers")
+            .take(loadedCards)
+            .value()
+        console.log(data)
+        setOffers(data)
+    }, [loadedCards])
 
     return (
         <>

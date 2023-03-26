@@ -1,23 +1,21 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import logo from "../../assets/images/tetki.png"
-import {useHttp} from "../../hooks/http.hook";
 import {useEffect} from "react";
 import li from '../../assets/images/li-style.png'
+import db from "../../api/db/data";
 
 
 const TariffCardBig = ({tariffId}) => {
-    const {request} = useHttp();
     const [tariffs, setTariffs] = useState([])
 
-    console.log(tariffId)
 
     useEffect(() => {
-        request(`http://localhost:3001/tariffs/${tariffId}`)
-            .then(data => setTariffs(data))
-            .catch(() => console.log('err'))
-
-    }, [request])
+        const data = db.chain
+            .get(`tariffs/${tariffId}`)
+            .value()
+        setTariffs(data)
+    }, [])
 
 
     return (

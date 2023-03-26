@@ -1,11 +1,10 @@
-import React from "react";
-import {useHttp} from "../../hooks/http.hook";
+import React, {useEffect} from "react";
 import {useFormik} from "formik";
 import {v4 as uuidv4} from 'uuid';
 import * as Yup from "yup";
 import styled from "styled-components";
 import {Button} from "../buttons/button";
-
+import db from "../../api/db/data";
 
 const validationSchema = Yup.object().shape({
     region: Yup.string().required("Оберіть область"),
@@ -20,7 +19,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const ConnectForm = (props) => {
-    const {request} = useHttp();
+
 
     const formik = useFormik({
         initialValues: {
@@ -42,9 +41,9 @@ const ConnectForm = (props) => {
             console.log("newClient", newClient);
 
 
-            request("http://localhost:3001/clientdata", "POST", JSON.stringify(newClient))
-                .then(res => console.log(res, 'Отправка успешна'))
-                .catch(err => console.log(err));
+            db.data.clientticket.push(newClient)
+            db.write()
+
 
             formik.resetForm();
         },

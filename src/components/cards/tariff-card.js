@@ -1,21 +1,22 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import {SliderTextPrefix} from "../../pages/main/slider.component"
-import {useHttp} from "../../hooks/http.hook";
 import {useEffect} from "react";
 import {Button, BUTTON_TYPES} from "../buttons/button";
+import db from "../../api/db/data";
+
 
 export default function TariffCard() {
-    const {request} = useHttp();
+
     const [tariffs, setTariffs] = useState([])
 
 
     useEffect(() => {
-        request("http://localhost:3001/tariffs")
-            .then(data => setTariffs(data))
-            .catch(() => console.log('err'))
-
-    }, [request])
+        const data = db.chain
+            .get('tariffs')
+            .value()
+        setTariffs(data)
+    }, [])
 
 
     return (

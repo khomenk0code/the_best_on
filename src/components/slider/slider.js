@@ -6,9 +6,9 @@ import LeftArrow from "../../assets/images/arrow-l.svg"
 import RightArrow from "../../assets/images/arrow-r.svg"
 import "./arrows.css"
 import styled from "styled-components";
-import {useHttp} from "../../hooks/http.hook";
 import {useEffect} from "react";
 import {Button} from "../buttons/button";
+import db from "../../api/db/data";
 
 
 function MainSlider({setShowModal}) {
@@ -36,16 +36,16 @@ function MainSlider({setShowModal}) {
         draggable: false,
     };
 
-    const {request} = useHttp();
+
     const [slides, setSlides] = useState([])
 
 
     useEffect(() => {
-        request("http://localhost:3001/slides")
-            .then(data => setSlides(data))
-            .catch(() => console.log('err'))
-
-    }, [request])
+        const data = db.chain
+            .get(`slides`)
+            .value()
+        setSlides(data)
+    }, [])
 
 
     return (
