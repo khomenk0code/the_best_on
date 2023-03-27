@@ -12,7 +12,8 @@ const TariffCardBig = ({tariffId}) => {
 
     useEffect(() => {
         const data = db.chain
-            .get(`tariffs/${tariffId}`)
+            .get('tariffs')
+            .find({id: tariffId})
             .value()
         setTariffs(data)
     }, [])
