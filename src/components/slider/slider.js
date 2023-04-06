@@ -57,7 +57,10 @@ function MainSlider({setShowModal}) {
                             <SlideImage src={slides.src} alt={`Slide ${slides.id}`}/>
                             <SlideTitle>{slides.title}</SlideTitle>
                             <SlideDescription>{slides.desc}</SlideDescription>
-                            <Button onClick={modalOpen} text="Підключитися"/>
+                            <SliderButton
+                                onClick={modalOpen}
+                                text="Підключитися"
+                            />
                         </SlideWrapper>
                     );
                 })}
@@ -105,25 +108,33 @@ const SlideTitle = styled.h2`
   margin-bottom: 47px;
 
   @media screen and (max-width: 768px) {
-    margin-top: 50px;
-    font-size: 40px;
+    font-size: 25px;
+    margin-top: 10px;
   }
 `;
 
 const SlideDescription = styled.div`
   font-size: 30px;
-  line-height: 35px;
   color: #FFFFFF;
   margin-bottom: 40px;
   width: 522px;
 
   @media screen and (max-width: 768px) {
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 16px;
     margin-bottom: 20px;
     width: 100%;
+    padding: 0 40px;
+    height: 56px;
   }
 `;
+
+const SliderButton = styled(Button)`
+  @media screen and (max-width: 768px) {
+    margin-left: 15px;
+    margin-bottom: 20px;
+  }
+
+`
 
 
 const SlideImage = styled.img`

@@ -8,9 +8,27 @@
 .slick-next {
     width: 60px;
     height: 60px;
-    right: 5%;
+    right: 2%;
     z-index: 1;
+
 }
+
+@media screen and (max-width: 768px) {
+    .slick-prev {
+        width: 30px;
+        height: 30px;
+        left: 2%;
+        z-index: 1;
+    }
+
+    .slick-next {
+        width: 30px;
+        height: 30px;
+        right: 5%;
+        z-index: 1;
+    }
+}
+
 
 .slick-prev:before, .slick-next:before {
     font-size: 30px;

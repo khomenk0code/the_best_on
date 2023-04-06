@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const SliderFooter = () => {
+
     return (
         <SliderFooterWrapper>
             <TextContainer>
@@ -28,8 +29,14 @@ const SliderFooterWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (min-width: 768px) {
-    margin: 66.5px 201px 102px 201px;
+  @media (max-width: 768px) {
+    height: 100px;
+    background: #F5F8FD;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    margin-top: 0;
+    justify-content: center;
+
   }
 `;
 
@@ -40,8 +47,8 @@ const TextContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 15px;
-  @media (min-width: 768px) {
-    width: 700px;
+  @media (max-width: 768px) {
+    height: 0;
   }
 `;
 

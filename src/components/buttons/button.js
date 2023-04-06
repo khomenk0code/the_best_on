@@ -65,13 +65,19 @@ const StyledButton = styled.button`
   gap: 10px;
   width: 239px;
   height: 48px;
-  border-radius: 15px;
+  border-radius: 10px;
   cursor: pointer;
   transition: 0.3s all ease-in;
   color: ${props => props.theme.color};
   background: ${props => props.theme.background};
   border: ${props => props.theme.border};
   font-size: 24px;
+
+  @media screen and (max-width: 768px) {
+    width: 160px;
+    height: 36px;
+    font-size: 18px;
+  }
 
 
   &:hover {
