@@ -126,6 +126,7 @@ const MenuLi = styled.li`
 
   &:hover {
     cursor: pointer;
+    transform: translateY(-2px);
   }
 
 `

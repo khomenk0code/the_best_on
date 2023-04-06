@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Header from "../../components/header/header"
 import Footer from "../../components/footer/footer";
 import {Button} from "../../components/buttons/button";
@@ -14,7 +14,7 @@ import {GoogleMap, LoadScript} from '@react-google-maps/api';
 import db from "../../api/db/data";
 
 const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Введіть ПІБ"),
+    name: Yup.string().trim().required("Введіть ПІБ"),
     question: Yup.string().required("Оберіть тип питання"),
     phone: Yup.string()
         .matches(/^\+38\(0\d{2}\)\d{3}-\d{2}-\d{2}$/, "Невірний формат телефону")

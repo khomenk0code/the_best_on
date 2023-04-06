@@ -21,10 +21,8 @@ const Header = () => {
     return (
 
         <Wrapper>
-
             <BurgerMenu toggleBurgerMenu={toggleBurgerMenu} isBurgerMenuShown={isBurgerMenuShown}>
             </BurgerMenu>
-
             <HeaderContainer>
                 <a href="/"><Logo src={logo} alt="The Best-On"/></a>
                 <MobileLogo src={mobileLogo} alt="The Best-On"/>
@@ -137,6 +135,7 @@ const LinksWrapper = styled.div`
     }
 `;
 const activeClassName = 'active';
+
 const Link = styled(NavLink)`
   text-decoration: none;
   font-size: 18px;
@@ -147,7 +146,7 @@ const Link = styled(NavLink)`
   cursor: pointer;
 
   &.${activeClassName} {
-    text-decoration: underline;
+    border-bottom: 1px solid #0D316D;
   }
 `;
 
