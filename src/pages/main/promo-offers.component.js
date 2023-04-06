@@ -34,7 +34,6 @@ const Offers = () => {
 
     return (
 
-
         <OffersWrapper>
             <OffersHeader>
                 Вигідні пропозиції
@@ -67,13 +66,17 @@ const OffersWrapper = styled.div`
 
 const OffersHeader = styled.h2`
   font-family: 'Nunito Sans', sans-serif;
-  margin: 0;
   font-style: normal;
   font-weight: 400;
   font-size: 50px;
-  line-height: 68px;
+  margin-bottom: 70px;
   color: #0D316D;
-  height: 138px;
+  @media (max-width: 768px) {
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+
+  }
 `;
 
 const CardsWrapper = styled.div`
@@ -82,17 +85,9 @@ const CardsWrapper = styled.div`
   flex-wrap: wrap;
   width: 1280px;
 
-  @media (max-width: 1280px) {
-    width: 960px;
-  }
-
-  @media (max-width: 960px) {
-    width: 640px;
-  }
-
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     width: 100%;
-    padding: 0 16px;
+    justify-content: center;
   }
 `;
 

@@ -17,7 +17,6 @@ function OfferCard({loadedCards}) {
             .get("offers")
             .take(loadedCards)
             .value()
-        console.log(data)
         setOffers(data)
     }, [loadedCards])
 
@@ -25,7 +24,6 @@ function OfferCard({loadedCards}) {
         <>
             {offers.map((offers) => {
                 return (
-
                     <OfferCardWrapper key={offers.id}>
                         <OfferName>{offers.name}</OfferName>
                         <OfferDesc>{offers.desc}</OfferDesc>

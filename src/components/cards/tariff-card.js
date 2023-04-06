@@ -39,45 +39,42 @@ export default function TariffCard() {
 
 const TariffCardWrapper = styled.div`
   display: flex;
-  width: 100%;
-  height: auto;
+  width: 305px;
+  height: 445px;
+  margin-right: 20px;
   border: 1px solid #0D316D;
   border-radius: 15px;
   flex-direction: column;
   margin-bottom: 50px;
   align-items: center;
 
-  @media screen and (min-width: 768px) {
-    width: 305px;
-    height: 445px;
+  @media screen and (max-width: 768px) {
+    width: 235px;
+    height: 341px;
   }
 `;
 
 const TariffName = styled.div`
   font-size: 24px;
-  line-height: 28px;
   text-align: center;
   color: #0D316D;
-  margin-top: 30px;
+  margin-top: 50px;
 
-  @media screen and (min-width: 768px) {
-    font-size: 30px;
-    line-height: 35px;
-    margin-top: 50px;
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+    margin-top: 35px;
   }
 `;
 
 const TariffPriceValue = styled.div`
   font-size: 36px;
-  line-height: 48px;
   color: #F1B634;
-  margin-top: 20px;
+  margin-top: 30px;
   text-align: center;
-
-  @media screen and (min-width: 768px) {
-    font-size: 50px;
-    line-height: 68px;
-    margin-top: 30px;
+  line-height: 68px;
+  @media screen and (max-width: 768px) {
+    font-size: 28px;
+    margin-top: 27px;
   }
 `;
 
@@ -86,35 +83,30 @@ const TariffTextPrefix = styled(SliderTextPrefix)`
   display: flex;
   align-items: baseline;
 
-  @media screen and (min-width: 768px) {
-    font-size: 24px;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
   }
 `
 
 const TariffMaxPrice = styled.div`
   font-size: 24px;
-  line-height: 28px;
   color: #F1B634;
   text-align: center;
   margin-left: 6px;
   margin-bottom: 4px;
 
-  @media screen and (min-width: 768px) {
-    font-size: 30px;
-    line-height: 35px;
+  @media screen and (max-width: 768px) {
   }
 `;
 
 const TariffBottomText = styled.div`
   font-size: 20px;
-  line-height: 24px;
   color: #0D316D;
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 37px;
 
-  @media screen and (min-width: 768px) {
-    font-size: 24px;
-    line-height: 28px;
-    margin-bottom: 36px;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+    margin-bottom: 35px;
   }
 `;

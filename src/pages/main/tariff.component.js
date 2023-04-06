@@ -39,8 +39,9 @@ const TariffsHeader = styled.h2`
   height: 138px;
 
   @media (max-width: 768px) {
-    font-size: 36px;
+    font-size: 28px;
     line-height: 50px;
+    margin-bottom: 40px;
     height: auto;
   }
 `;
@@ -48,7 +49,6 @@ const TariffsHeader = styled.h2`
 const CardsWrapper = styled.div`
   display: flex;
   height: 445px;
-  width: 1280px;
   justify-content: space-between;
 
   @media (max-width: 768px) {

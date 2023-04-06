@@ -8,21 +8,21 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Raleway';
     src: url(${RalewayRegular}) format('truetype');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Inter';
     src: url(${InterRegular}) format('truetype');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'NunitoSans';
     src: url(${NunitoSans}) format('truetype');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
   }
 
@@ -71,15 +71,6 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-  h1,
-  h2,
-  input,
-  button,
-  textarea,
-  div,
-  select {
-    font: inherit;
-  }
 
   /* Убираем внешние отступы */
   body,
