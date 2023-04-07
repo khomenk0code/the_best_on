@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {useFormik} from "formik";
 import {v4 as uuidv4} from 'uuid';
 import * as Yup from "yup";
@@ -10,8 +10,8 @@ const validationSchema = Yup.object().shape({
     region: Yup.string().required("Оберіть область"),
     city: Yup.string().required("Оберіть місто"),
     street: Yup.string().required("Введіть вулицю"),
-    house: Yup.string().required("Введіть номер будинку"),
-    name: Yup.string().required("Введіть ПІБ"),
+    house: Yup.string().trim().required("Введіть номер будинку"),
+    name: Yup.string().trim().required("Введіть ПІБ"),
     email: Yup.string().email("Невірний формат електронної пошти"),
     phone: Yup.string()
         .matches(/^\+38\(0\d{2}\)\d{3}-\d{2}-\d{2}$/, "Невірний формат телефону")
@@ -74,9 +74,9 @@ const ConnectForm = (props) => {
 
                     >
                         <option value={''}>Область</option>
-                        <option>Киевская</option>
-                        <option>Львовская</option>
-                        <option>Харьковская</option>
+                        <option>Запорiзька</option>
+                        <option>Львiвська</option>
+                        <option>Харкiвська</option>
                     </Select>
                     {touched.region && errors.region ? (
                         <Error1>{errors.region}</Error1>
@@ -89,9 +89,9 @@ const ConnectForm = (props) => {
 
                     >
                         <option value={''}>Мiсто</option>
-                        <option>Киев</option>
-                        <option>Львов</option>
-                        <option>Харьков</option>
+                        <option>Запорiжжя</option>
+                        <option>Львiв</option>
+                        <option>Харкiв</option>
                     </Select>
                     {touched.city && errors.city ? <Error2>{errors.city}</Error2> : null}
                 </Row>
@@ -105,8 +105,8 @@ const ConnectForm = (props) => {
 
                     >
                         <option value={''}>Вулиця</option>
-                        <option>Носа</option>
-                        <option>Кита</option>
+                        <option>Головна</option>
+                        <option>Зеленського</option>
                         <option>Бандери</option>
                     </Select>
                     {touched.street && errors.street ? <Error1>{errors.street}</Error1> : null}
