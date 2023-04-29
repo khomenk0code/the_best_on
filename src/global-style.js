@@ -5,6 +5,13 @@ import NunitoSans from './assets/fonts/NunitoSans-Regular.ttf';
 
 
 export const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+    text-decoration: none;
+    margin: 0;
+  }
+
+
   @font-face {
     font-family: 'Raleway';
     src: url(${RalewayRegular}) format('truetype');
@@ -46,9 +53,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   li {
-
     list-style: none;
-
   }
 
 
@@ -64,32 +69,5 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 24px;
     line-height: 28px;
   }
-
-
-  * {
-    box-sizing: border-box;
-    text-decoration: none;
-  }
-
-
-  /* Убираем внешние отступы */
-  body,
-  h1,
-  h2,
-  h3,
-  h4,
-  p,
-  ul[class],
-  ol[class],
-  li,
-  figure,
-  figcaption,
-  blockquote,
-  dl,
-  dd {
-    margin: 0;
-  }
-
-
 
 `;

@@ -20,6 +20,7 @@ const BUTTON_THEMES = {
 
         hover: {
             background: `${COLORS.primary}d4`,
+            opacity: .1
         }
     },
     [BUTTON_TYPES.primaryOutline]: {

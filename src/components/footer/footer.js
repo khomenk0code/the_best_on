@@ -13,7 +13,6 @@ const Footer = () => {
         <FooterWrapper>
             <LogoWrapper>
                 <FooterLogo src={logo}/>
-                <LogoText>© 2009 - 2023 | the best on</LogoText>
             </LogoWrapper>
             <MenuWrapper>
                 <MenuTitle>Тарифы</MenuTitle>
@@ -46,7 +45,7 @@ const Footer = () => {
                 <PhoneLi><ContactsOperatorImg src={vodafone}/>+38(093)9999999</PhoneLi>
                 <PhoneLi><ContactsOperatorImg src={kyivstar}/>+38(093)9999999</PhoneLi>
             </ContactsWrapper>
-
+            <LogoText>© 2009 - 2023 | the best on</LogoText>
         </FooterWrapper>
     );
 }
@@ -59,11 +58,12 @@ const FooterWrapper = styled.div`
   padding: 20px;
   background: #0D316D;
   align-items: center;
+  position: relative;
   @media screen and (max-width: 768px) {
-    flex-direction: column;
+    padding: 0;
     height: auto;
-    padding-bottom: 30px;
-    justify-content: center;
+    flex-direction: column;
+    display: flex;
   }
 `;
 
@@ -79,9 +79,9 @@ const LogoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 40px;
+  align-items: center;
   @media screen and (max-width: 768px) {
-    margin-right: 0;
-    margin-bottom: 30px;
+    margin: 30px 0;
   }
 `;
 
@@ -90,6 +90,11 @@ const LogoText = styled.div`
   font-size: 14px;
   line-height: 16px;
   color: #FFFFFF;
+  position: absolute;
+  bottom: 20px;
+  @media screen and (max-width: 768px) {
+    bottom: 20px;
+  }
 `;
 
 
@@ -100,9 +105,12 @@ const MenuWrapper = styled.nav`
   justify-content: space-between;
   margin-right: 40px;
   @media screen and (max-width: 768px) {
+    width: 100%;
     margin-right: 0;
     margin-bottom: 30px;
     height: auto;
+    display: flex;
+    align-items: center;
   }
 `;
 
@@ -112,6 +120,7 @@ const MenuTitle = styled.div`
   font-size: 24px;
   line-height: 28px;
   color: #FFFFFF;
+
 `;
 
 const MenuLi = styled.li`
@@ -122,6 +131,10 @@ const MenuLi = styled.li`
   line-height: 23px;
   color: #FFFFFF;
   list-style: none;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
 
 
   &:hover {
@@ -139,6 +152,7 @@ const ButtonsWrapper = styled.div`
   @media screen and (max-width: 768px) {
     flex-direction: column;
     justify-content: space-around;
+    margin-bottom: 20px;
   }
 `;
 
@@ -149,6 +163,9 @@ const ContactsWrapper = styled.div`
   align-items: center;
   height: 160px;
   justify-content: space-around;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 60px;
+  }
 `;
 
 const PhoneLi = styled.div`
