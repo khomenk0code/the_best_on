@@ -131,12 +131,13 @@ const VectorWrapper = styled.div`
   color: #0D316D;
 
   @media (max-width: 1200px) {
-    margin-top: 40px;
-    margin-bottom: 40px;
+    text-align: center;
+    margin: 0;
   }
 
   @media (max-width: 768px) {
     width: 100%;
+    justify-content: center;
   }
 `;
 
@@ -162,7 +163,7 @@ const Points = styled.img`
 const Vector = styled.img`
   margin-top: 37px;
   @media (max-width: 1200px) {
-    width: 100%;
+    display: none;
   }
 `;
 

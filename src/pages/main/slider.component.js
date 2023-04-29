@@ -18,7 +18,7 @@ const SliderFooter = () => {
             <TextBottom>
                 <SliderTextMb> мбіт/с </SliderTextMb>
                 <SliderTextUah> грн/міс </SliderTextUah>
-                <div> років на ринку</div>
+                <SliderTextMb> років на ринку</SliderTextMb>
             </TextBottom>
         </SliderFooterWrapper>
     );
